@@ -5,27 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Himansh - Cybersecurity Professional</title>
     <style>
-        /* THE HACKER THEME SETTINGS */
+        /* THE NEW CONSOLE/TEST RUNNER THEME */
         html {
-            /* Smooth scrolling added for better user experience */
             scroll-behavior: smooth; 
         }
         body {
-            /* Basic Theme Settings */
-            background-color: #0d1117; /* Dark background */
-            color: #00ff41; /* Hacker Green text */
-            font-family: 'Courier New', Courier, monospace; /* Terminal font */
+            /* Dark Background, Light Text */
+            background-color: #111111; 
+            color: #f0f0f0; 
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 20px;
             line-height: 1.6;
-
-            /* NETWORK GRAPH EFFECT */
-            background-image: 
-                linear-gradient(to right, #00ff411a 1px, transparent 1px), 
-                linear-gradient(to bottom, #00ff411a 1px, transparent 1px);
-            background-size: 25px 25px; 
-            background-repeat: repeat;
-            opacity: 0.98; 
+            /* Removed background graph */
         }
         .container {
             max-width: 800px;
@@ -33,7 +25,7 @@
         }
         h1, h2 {
             text-transform: uppercase;
-            border-bottom: 2px solid #00ff41;
+            border-bottom: 2px solid #ff4444; /* Red Accent for section breaks */
             padding-bottom: 10px;
         }
         h1 { font-size: 2.5em; }
@@ -42,36 +34,43 @@
             display: inline-block;
             width: 10px;
             height: 20px;
-            background-color: #00ff41;
+            background-color: #ff4444; /* Red Accent */
             animation: blink 1s infinite;
         }
-        a { color: #fff; text-decoration: none; border-bottom: 1px dotted #fff; }
-        a:hover { background-color: #00ff41; color: #000; }
+        a { 
+            color: #9cdcfe; /* Light Blue for links (like code editor keywords) */
+            text-decoration: none; 
+            border-bottom: 1px dotted #9cdcfe; 
+        }
+        a:hover { 
+            background-color: #9cdcfe; 
+            color: #111111; 
+        }
         
         /* NAVIGATION BAR STYLE */
         .nav-bar {
             margin-top: 20px;
             margin-bottom: 30px;
-            border-top: 1px dotted #00ff41;
-            border-bottom: 1px dotted #00ff41;
+            border-top: 1px solid #777777; /* Subtle Gray Separator */
+            border-bottom: 1px solid #777777; /* Subtle Gray Separator */
             padding: 10px 0;
             display: flex;
             justify-content: space-around;
         }
         .nav-bar a {
-            color: #00ff41;
+            color: #f0f0f0; /* White/Light text in nav */
             text-transform: uppercase;
             font-size: 0.9em;
             text-decoration: none;
-            border-bottom: none; /* Override standard link style for navigation */
+            border-bottom: none; 
         }
         .nav-bar a:hover {
-            color: #fff;
+            color: #ff4444; /* Red hover accent */
         }
 
         /* SKILL TAGS */
         .skill {
-            border: 1px solid #00ff41;
+            border: 1px solid #f0f0f0; /* Light border */
             padding: 5px 10px;
             display: inline-block;
             margin: 5px;
@@ -112,7 +111,7 @@
         <h2 id="about">01_Mission_Objective (About)</h2>
         <p>
             >Introduction...<br>
-            I specialize in vulnerability analysis and secure design for distributed and cloud applications. I focus on clear threat boundaries, reliable controls, and early detection of high-impact risks. [cite_start]My approach is grounded in collaboration with engineers and delivering security improvements that actually stick. [cite: 4, 7]
+            I specialize in vulnerability analysis and secure design for distributed and cloud applications. I focus on clear threat boundaries, reliable controls, and early detection of high-impact risks. My approach is grounded in collaboration with engineers and delivering security improvements that actually stick. 
         </p>
     </div>
 
@@ -142,16 +141,18 @@
 
     <div class="section">
         <h2 id="projects">04_Operations (Projects / Research)</h2>
+        
         <p><strong>> Secure System Engineering</strong></p>
-<p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
-<br>        <p><strong>> Application & API Security Research</strong></p>
-        [cite_start]<p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications. [cite: 40]</p>
+        <p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
+        <br>
+        <p><strong>> Application & API Security Research</strong></p>
+        <p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications.</p>
 
         <p><strong>> Cloud & Distributed System Security</strong></p>
         <p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>
         
         <p><strong>> Vulnerability Discovery & Offensive Testing</strong></p>
-        [cite_start]<p>Hands-on testing through **Bug Bounty Hunting** and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions. [cite: 38, 40, 41]</p>
+        [cite_start]<p>Hands-on testing through **Bug Bounty Hunting** [cite: 40] [cite_start]and lab environments (Hack The Box & Labs)[cite: 38]; validating theory with exploitation to strengthen secure design decisions. </p>
         
     </div>
 
@@ -167,16 +168,16 @@
     <div class="section">
         <h2 id="education">06_Database (Education)</h2>
         <p><strong>> Micro Credit Course in Advanced Cyber Security</strong><br>
-        Indian Institute of Technology Guwahati (Remote) </p>
+        Indian Institute of Technology Guwahati (Remote) | [cite_start]Sep 2024 - June 2025 [cite: 28, 29]</p>
         <p><strong>> Bachelors of Computer and Application</strong><br>
-        </p>
+        Maharaja Agrasen Himalayan Garhwal University | [cite_start]2021 - 2024 [cite: 31, 32]</p>
         <p><strong>> Diploma in Computer Science</strong><br>
-        </p>
+        Maharaja Agrasen Himalayan Garhwal University | [cite_start]2018 - 2021 [cite: 33, 35]</p>
     </div>
 
     <div class="section">
         <h2>07_Offline_Mode (Location)</h2>
-        [cite_start]<p>Based in India.</p>
+        [cite_start]<p>Based in India, specifically Dehradun, Uttarakhand[cite: 3].</p>
     </div>
 
     <footer style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #666;">
