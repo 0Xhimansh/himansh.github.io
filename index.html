@@ -6,6 +6,10 @@
     <title>Himansh - Cybersecurity Professional</title>
     <style>
         /* THE HACKER THEME SETTINGS */
+        html {
+            /* Smooth scrolling added for better user experience */
+            scroll-behavior: smooth; 
+        }
         body {
             /* Basic Theme Settings */
             background-color: #0d1117; /* Dark background */
@@ -15,13 +19,13 @@
             padding: 20px;
             line-height: 1.6;
 
-            /* NEW NETWORK GRAPH EFFECT */
+            /* NETWORK GRAPH EFFECT */
             background-image: 
                 linear-gradient(to right, #00ff411a 1px, transparent 1px), 
                 linear-gradient(to bottom, #00ff411a 1px, transparent 1px);
-            background-size: 25px 25px; /* Adjust spacing of the grid lines */
+            background-size: 25px 25px; 
             background-repeat: repeat;
-            opacity: 0.98; /* Keep the effect subtle */
+            opacity: 0.98; 
         }
         .container {
             max-width: 800px;
@@ -44,6 +48,27 @@
         a { color: #fff; text-decoration: none; border-bottom: 1px dotted #fff; }
         a:hover { background-color: #00ff41; color: #000; }
         
+        /* NAVIGATION BAR STYLE */
+        .nav-bar {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            border-top: 1px dotted #00ff41;
+            border-bottom: 1px dotted #00ff41;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .nav-bar a {
+            color: #00ff41;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            text-decoration: none;
+            border-bottom: none; /* Override standard link style for navigation */
+        }
+        .nav-bar a:hover {
+            color: #fff;
+        }
+
         /* SKILL TAGS */
         .skill {
             border: 1px solid #00ff41;
@@ -74,16 +99,25 @@
         </p>
     </header>
 
+    <nav class="nav-bar">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certs</a>
+        <a href="#education">Education</a>
+    </nav>
+
     <div class="section">
-        <h2>01_Mission_Objective (About)</h2>
+        <h2 id="about">01_Mission_Objective (About)</h2>
         <p>
             >Introduction...<br>
-            I specialize in vulnerability analysis and secure design for distributed and cloud applications. I focus on clear threat boundaries, reliable controls, and early detection of high-impact risks. My approach is grounded in collaboration with engineers and delivering security improvements that actually stick.
+            I specialize in vulnerability analysis and secure design for distributed and cloud applications. I focus on clear threat boundaries, reliable controls, and early detection of high-impact risks. [cite_start]My approach is grounded in collaboration with engineers and delivering security improvements that actually stick. [cite: 4, 7]
         </p>
     </div>
 
     <div class="section">
-        <h2>02_Arsenal (Skills)</h2>
+        <h2 id="skills">02_Arsenal (Skills)</h2>
         <p>> Loading modules...</p>
         <div class="skill">Distributed Systems Security (trust boundaries, replication risks, failure security)</div>
         <div class="skill">Advanced API & Web Security (GraphQL, async APIs, object-level exploits)</div>
@@ -96,7 +130,7 @@
     </div>
 
     <div class="section">
-        <h2>03_Logs (Experience)</h2>
+        <h2 id="experience">03_Logs (Experience)</h2>
         
         <p><strong>> Cybersecurity Analyst | In Technet Limited, Hyderabad</strong> <br>
         <em>Mar 2023 - Jun 2025</em> </p>
@@ -107,36 +141,33 @@
     </div>
 
     <div class="section">
-        <h2>04_Operations (Projects / Interests)</h2>
+        <h2 id="projects">04_Operations (Projects / Research)</h2>
         <p><strong>> Secure System Engineering</strong></p>
 <p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
-<br>
-<p><strong>> Cloud & Distributed System Security</strong></p>
-<p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>
-<br>
-<p><strong>> Cloud & Distributed System Security</strong></p>
-<p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>
-<br>
-<p><strong>> Application & API Security Research</strong></p>
-<p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications.</p>
-<br>
-<p><strong>> Vulnerability Discovery & Offensive Testing</strong></p>
-<p>Hands-on testing through bug bounty programs and lab environments; validating theory with exploitation to strengthen secure design decisions.</p>
+<br>        <p><strong>> Application & API Security Research</strong></p>
+        [cite_start]<p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications. [cite: 40]</p>
+
+        <p><strong>> Cloud & Distributed System Security</strong></p>
+        <p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>
+        
+        <p><strong>> Vulnerability Discovery & Offensive Testing</strong></p>
+        [cite_start]<p>Hands-on testing through **Bug Bounty Hunting** and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions. [cite: 38, 40, 41]</p>
+        
     </div>
 
     <div class="section">
-        <h2>05_Credentials (Certs)</h2>
+        <h2 id="certs">05_Credentials (Certs)</h2>
         <ul>
-            <li>Certified Ethical Hacker (CEH)</li>
-            <li>Certified Appsec Practitioner</li>
-            <li>Microsoft AZ-900</li>
+            [cite_start]<li>Certified Ethical Hacker (CEH) [cite: 24]</li>
+            [cite_start]<li>Certified Appsec Practitioner [cite: 24]</li>
+            [cite_start]<li>Microsoft AZ-900 [cite: 24]</li>
         </ul>
     </div>
 
     <div class="section">
-        <h2>06_Database (Education)</h2>
+        <h2 id="education">06_Database (Education)</h2>
         <p><strong>> Micro Credit Course in Advanced Cyber Security</strong><br>
-        Indian Institute of Technology Guwahati (Remote) | Sep 2024 - June 2025 </p>
+        Indian Institute of Technology Guwahati (Remote) </p>
         <p><strong>> Bachelors of Computer and Application</strong><br>
         </p>
         <p><strong>> Diploma in Computer Science</strong><br>
@@ -145,7 +176,7 @@
 
     <div class="section">
         <h2>07_Offline_Mode (Location)</h2>
-        <p>Based in India.</p>
+        [cite_start]<p>Based in India.</p>
     </div>
 
     <footer style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #666;">
