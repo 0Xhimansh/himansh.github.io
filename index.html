@@ -1,157 +1,307 @@
-import WindowFrame from "@/components/WindowFrame";
-import NavBar from "@/components/NavBar";
-import Header from "@/components/Header";
-import Section from "@/components/Section";
-import SkillTag from "@/components/SkillTag";
-import ExperienceItem from "@/components/ExperienceItem";
-import ProjectCard from "@/components/ProjectCard";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himansh - Cybersecurity Professional</title>
+    <style>
+        /* CORE THEME SETTINGS */
+        html {
+            scroll-behavior: smooth; 
+        }
+        body {
+            /* Dark Background for the whole page */
+            background-color: #0d1117; /* Slightly darker page background */
+            color: #f0f0f0; 
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 40px 20px; /* Padding around the main window */
+            line-height: 1.6;
+        }
 
-const skills = [
-  "Distributed Systems Security (trust boundaries, replication risks, failure security)",
-  "Advanced API & Web Security (GraphQL, async APIs, object-level exploits)",
-  "Vulnerability Assessment & Exploit Analysis",
-  "Identity & Access Security (OAuth2, OIDC, session integrity)",
-  "Attack Surface Management (continuous discovery, risk-ranking)",
-  "Security Automation for Scale (CI/CD controls, auto-recon of new endpoints)",
-  "Burp Suite, Postman, SoapUI (Testing Tools)",
-];
 
-const projects = [
-  {
-    title: "Secure System Engineering",
-    description:
-      "Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.",
-  },
-  {
-    title: "Application & API Security Research",
-    description:
-      "Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications.",
-  },
-  {
-    title: "Cloud & Distributed System Security",
-    description:
-      "Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.",
-  },
-  {
-    title: "Vulnerability Discovery & Offensive Testing",
-    description:
-      "Hands-on testing through Bug Bounty Hunting and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions.",
-  },
-];
 
-const Index = () => {
-  return (
-    <div className="min-h-screen bg-background p-5 md:p-10">
-      <WindowFrame>
-        <NavBar />
-        <div className="p-5 md:p-8 max-w-[800px] mx-auto">
-          <Header />
 
-          <Section id="about" title="Mission_Objective (About)" number="01">
-            <p className="text-muted-foreground">
-              <span className="text-primary">&gt;</span> Introduction...
-              <br />
-              <br />
-              I specialize in vulnerability analysis and secure design for
-              distributed and cloud applications. I focus on clear threat
-              boundaries, reliable controls, and early detection of high-impact
-              risks. My approach is grounded in collaboration with engineers and
-              delivering security improvements that actually stick.
-            </p>
-          </Section>
+        /* NEW WINDOW FRAME STYLING */
+        .window-frame {
+            background-color: #111111; /* Console Black background for content */
+            max-width: 850px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            border-radius: 6px;
+            overflow: hidden;
+        }
 
-          <Section id="skills" title="Arsenal (Skills)" number="02">
-            <p className="text-muted-foreground mb-4">
-              <span className="text-primary">&gt;</span> Loading modules...
-            </p>
-            <div className="flex flex-wrap">
-              {skills.map((skill) => (
-                <SkillTag key={skill} skill={skill} />
-              ))}
-            </div>
-          </Section>
 
-          <Section id="experience" title="Logs (Experience)" number="03">
-            <div className="mt-4">
-              <ExperienceItem
-                title="Cybersecurity Analyst"
-                company="In Technet Limited, Hyderabad"
-                period="Mar 2023 - Jun 2025"
-              />
-              <ExperienceItem
-                title="Project Intern"
-                company="MentorMind (Remote)"
-                period="Aug 2023 - Oct 2023"
-              />
-            </div>
-          </Section>
 
-          <Section id="projects" title="Operations (Projects / Research)" number="04">
-            <div className="mt-4 space-y-2">
-              {projects.map((project) => (
-                <ProjectCard
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                />
-              ))}
-            </div>
-          </Section>
 
-          <Section id="certs" title="Credentials (Certs)" number="05">
-            <ul className="list-none space-y-2 mt-4">
-              <li className="text-muted-foreground">
-                <span className="text-primary mr-2">•</span>
-                Certified Ethical Hacker (CEH)
-              </li>
-              <li className="text-muted-foreground">
-                <span className="text-primary mr-2">•</span>
-                Certified Appsec Practitioner
-              </li>
-              <li className="text-muted-foreground">
-                <span className="text-primary mr-2">•</span>
-                Microsoft AZ-900
-              </li>
-            </ul>
-          </Section>
+        /* SIMULATED TITLE BAR */
+        .title-bar {
+            background-color: #333333; /* Dark Gray Title Bar */
+            color: #f0f0f0;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+        }
+        .title-bar .controls {
+            display: flex;
+            gap: 6px;
+        }
+        .title-bar .controls span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .title-bar .controls .close { background-color: #ff5f56; } /* Red */
+        .title-bar .controls .minimize { background-color: #ffbd2e; } /* Yellow */
+        .title-bar .controls .maximize { background-color: #27c93f; } /* Green */
+        
+        .container {
+            /* Padding inside the window frame */
+            padding: 20px;
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+        
+        /* CONTENT STYLES */
+        h1, h2 {
+            text-transform: uppercase;
+            border-bottom: 2px solid #ff4444; /* Red Accent */
+            padding-bottom: 10px;
+        }
+        h1 { font-size: 2.5em; }
+        .section { margin-bottom: 40px; }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #ff4444; 
+            animation: blink 1s infinite;
+        }
+        a { 
+            color: #9cdcfe; 
+            text-decoration: none; 
+            border-bottom: 1px dotted #9cdcfe; 
+        }
+        a:hover { 
+            background-color: #9cdcfe; 
+            color: #111111; 
+        }
+        
+        /* TABBED NAVIGATION BAR STYLE */
+        .nav-bar {
+            /* Positioned directly under the title bar */
+            background-color: #242424; /* Darker bar for the tabs */
+            border-bottom: 1px solid #ff4444; /* Red separator line */
+            padding: 0;
+            display: flex;
+            justify-content: flex-start; /* Align tabs to the left */
+            flex-wrap: wrap;
+        }
+        .nav-bar a {
+            color: #f0f0f0;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin-right: 1px; /* Small space between tabs */
+            border-right: 1px solid #333;
+            border-bottom: 3px solid transparent; /* default state */
+            transition: all 0.2s;
+        }
+        /* Highlight the active/hovered tab */
+        .nav-bar a:hover {
+            color: #ff4444; /* Red hover accent */
+            background-color: #111111;
+            border-bottom: 3px solid #ff4444; /* Red line under the tab */
+        }
+        .nav-bar a:active, .nav-bar a:focus { /* Optional: style for when a tab is clicked/focused */
+            border-bottom: 3px solid #ff4444; 
+        }
+        .nav-bar a:link, .nav-bar a:visited {
+            border-bottom: none; /* Reset standard link style */
+        }
 
-          <Section id="education" title="Database (Education)" number="06">
-            <div className="space-y-4 mt-4">
-              <div>
-                <p className="font-bold text-foreground">
-                  <span className="text-primary">&gt;</span> Micro Credit Course
-                  in Advanced Cyber Security
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  Indian Institute of Technology Guwahati (Remote)
-                </p>
-              </div>
-              <div>
-                <p className="font-bold text-foreground">
-                  <span className="text-primary">&gt;</span> Bachelors of
-                  Computer and Application
-                </p>
-              </div>
-              <div>
-                <p className="font-bold text-foreground">
-                  <span className="text-primary">&gt;</span> Diploma in Computer
-                  Science
-                </p>
-              </div>
-            </div>
-          </Section>
 
-          <Section id="location" title="Offline_Mode (Location)" number="07">
-            <p className="text-muted-foreground">Based in INDIA</p>
-          </Section>
 
-          <footer className="text-center mt-12 pt-6 border-t border-border text-sm text-muted-foreground">
-            <p>System Status: ONLINE | Built by Himansh</p>
-          </footer>
-        </div>
-      </WindowFrame>
-    </div>
-  );
-};
 
-export default Index;
+        /* SKILL TAGS */
+        .skill {
+            border: 1px solid #f0f0f0; 
+            padding: 5px 10px;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+
+
+
+
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+<div class="window-frame">
+
+
+
+
+    <div class="title-bar">
+        <span class="filename">HIMANSHU_PORTFOLIO.RUN</span>
+        <div class="controls">
+            <span class="close"></span>
+            <span class="minimize"></span>
+            <span class="maximize"></span>
+        </div>
+    </div>
+
+
+
+
+    <nav class="nav-bar">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects/Research</a>
+        <a href="#certs">Certs</a>
+        <a href="#education">Education</a>
+    </nav>
+    
+    <div class="container">
+    
+        <header style="text-align: center; margin-bottom: 50px;">
+            <h1>himansh@portfolio:~# <span class="cursor"></span></h1>
+            <p>[ Security Engineer | Secure Architecture | Attack Surface Reduction at Scale ]</p>
+            <p>
+                <a href="https://www.linkedin.com/in/himanshh/" target="_blank">LinkedIn</a> | 
+                <a href="YOUR_GITHUB_URL" target="_blank">GitHub</a> | 
+                <a href="mailto:himansh.sec.eng@gmail.com">himansh.sec.eng@gmail.com</a>
+            </p>
+        </header>
+
+
+
+
+        <div class="section">
+            <h2 id="about">01_Mission_Objective (About)</h2>
+            <p>
+                >Introduction...<br>
+                I specialize in vulnerability analysis and secure design for distributed and cloud applications. I focus on clear threat boundaries, reliable controls, and early detection of high-impact risks. My approach is grounded in collaboration with engineers and delivering security improvements that actually stick. 
+            </p>
+        </div>
+
+
+
+
+        <div class="section">
+            <h2 id="skills">02_Arsenal (Skills)</h2>
+            <p>> Loading modules...</p>
+            <div class="skill">Distributed Systems Security (trust boundaries, replication risks, failure security)</div>
+            <div class="skill">Advanced API & Web Security (GraphQL, async APIs, object-level exploits)</div>
+            <div class="skill">Vulnerability Assessment & Exploit Analysis</div>
+            <div class="skill">Identity & Access Security (OAuth2, OIDC, session integrity)</div>
+            <div class="skill">Attack Surface Management (continuous discovery, risk-ranking)</div>
+            <div class="skill">Security Automation for Scale (CI/CD controls, auto-recon of new endpoints)</div>
+            <div class="skill">Attack Surface Management (continuous recon)</div>
+            <div class="skill">Burp Suite, Postman, SoapUI (Testing Tools)</div>
+        </div>
+
+
+
+
+        <div class="section">
+            <h2 id="experience">03_Logs (Experience)</h2>
+            
+            <p><strong>> Cybersecurity Analyst | In Technet Limited, Hyderabad</strong> <br>
+            <em>Mar 2023 - Jun 2025</em> </p>
+            
+            <p><strong>> Project Intern | MentorMind (Remote)</strong> <br>
+            <em>Aug 2023 - Oct 2023</em> </p>
+            
+        </div>
+
+
+
+
+        <div class="section">
+            <h2 id="projects">04_Operations (Projects / Research)</h2>
+            
+            <p><strong>> Secure System Engineering</strong></p>
+            <p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
+            <p><strong>> Application & API Security Research</strong></p>
+            <p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications.</p>
+            <p><strong>> Cloud & Distributed System Security</strong></p>
+            <p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>
+            <p><strong>> Vulnerability Discovery & Offensive Testing</strong></p>
+            <p>Hands-on testing through **Bug Bounty Hunting** and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions. </p>
+            
+        </div>
+
+
+
+
+        <div class="section">
+            <h2 id="certs">05_Credentials (Certs)</h2>
+            <ul>
+                <li>Certified Ethical Hacker (CEH)</li>
+                <li>Certified Appsec Practitioner</li>
+                <li>Microsoft AZ-900</li>
+            </ul>
+        </div>
+
+
+
+
+        <div class="section">
+            <h2 id="education">06_Database (Education)</h2>
+            <p><strong>> Micro Credit Course in Advanced Cyber Security</strong><br>
+            Indian Institute of Technology Guwahati (Remote) </p>
+            <p><strong>> Bachelors of Computer and Application</strong><br>
+            </p>
+            <p><strong>> Diploma in Computer Science</strong><br>
+            </p>
+        </div>
+
+
+
+
+        <div class="section">
+            <h2>07_Offline_Mode (Location)</h2>
+            <p>Based in INDIA</p>
+        </div>
+
+
+
+
+        <footer style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #666;">
+            <p>System Status: ONLINE | Built by Himansh</p>
+        </footer>
+
+
+
+
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
+
+
+
+
+I already have this website and he is the code base. I just need to make it more interactive. Can you add some components to make it interactive and before making any changes? Tell me what are you going to do?
