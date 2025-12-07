@@ -10,9 +10,9 @@
             scroll-behavior: smooth; 
         }
         body {
-            /* Dark Background for the whole page (keeping original dark shade) */
+            /* Dark Background for the whole page */
             background-color: #0d1117; 
-            color: #f0f0f0; /* Off-white text */
+            color: #f0f0f0; 
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 40px 20px; 
@@ -29,7 +29,6 @@
             height: 100%;
             z-index: 0; 
             opacity: 0.1; 
-            /* Green subtle scan lines */
             background: repeating-linear-gradient(
                 to bottom,
                 transparent 0px,
@@ -75,7 +74,6 @@
             border-radius: 50%;
             display: inline-block;
         }
-        /* Keeping the window controls their standard traffic light colors */
         .title-bar .controls .close { background-color: #ff5f56; } 
         .title-bar .controls .minimize { background-color: #ffbd2e; } 
         .title-bar .controls .maximize { background-color: #27c93f; } 
@@ -105,6 +103,12 @@
             background-color: #00FF00; 
             animation: blink 1s infinite;
         }
+
+        /* 🆕 GLITCH EFFECT TRIGGER */
+        h2:hover {
+            animation: glitch 0.5s infinite;
+        }
+
         a { 
             color: #9cdcfe; 
             text-decoration: none; 
@@ -134,7 +138,6 @@
             margin-left: 5px;
         }
 
-
         /* TABBED NAVIGATION BAR STYLE */
         .nav-bar {
             background-color: #242424; 
@@ -158,15 +161,15 @@
         }
         /* Highlight the active/hovered tab in GREEN */
         .nav-bar a:hover {
-            color: #00FF00; /* Green hover accent */
+            color: #00FF00; 
             background-color: #111111;
-            border-bottom: 3px solid #00FF00; /* Green line under the tab */
+            border-bottom: 3px solid #00FF00; 
         }
         /* Active Tab Style (for initial load) in GREEN */
         .nav-bar a.active { 
-            color: #00FF00; /* Green text */
+            color: #00FF00; 
             background-color: #111111; 
-            border-bottom: 3px solid #00FF00; /* Green line under the tab */
+            border-bottom: 3px solid #00FF00; 
         }
         
         /* LOADING STATUS STYLES (Kept Yellow for 'In Progress') */
@@ -206,6 +209,39 @@
             to { width: 25.5em; } 
         }
 
+        /* 🆕 GLITCH EFFECT KEYFRAMES */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 #00FF00, -0.05em 0 0 #ff4444;
+                transform: translate(0.01em, 0.01em);
+            }
+            15% {
+                text-shadow: -0.05em 0 0 #00FF00, 0.05em 0 0 #ff4444;
+                transform: translate(-0.01em, -0.01em);
+            }
+            30% {
+                text-shadow: 0.02em 0 0 #00FF00, -0.02em 0 0 #ff4444;
+                transform: translate(0.01em, -0.01em);
+            }
+            45% {
+                text-shadow: -0.02em 0 0 #00FF00, 0.02em 0 0 #ff4444;
+                transform: translate(-0.01em, 0.01em);
+            }
+            60% {
+                text-shadow: 0.01em 0 0 #00FF00, -0.01em 0 0 #ff4444;
+                transform: translate(0, 0);
+            }
+            75% {
+                text-shadow: -0.01em 0 0 #00FF00, 0.01em 0 0 #ff4444;
+                transform: translate(0, 0);
+            }
+            100% {
+                text-shadow: 0 0 0 #00FF00, 0 0 0 #ff4444;
+                transform: translate(0, 0);
+            }
+        }
+
+
         /* DESKTOP WIDTH FIX */
         @media (min-width: 1200px) {
             .window-frame {
@@ -221,7 +257,7 @@
 <div class="window-frame">
 
     <div class="title-bar">
-        <span class="filename">HIMANSHU_PORTFOLIO.RUN</span>
+        <span class="filename">HIMANSH_PORTFOLIO.RUN</span>
         <div class="controls">
             <span class="close"></span>
             <span class="minimize"></span>
@@ -270,7 +306,7 @@
             <div class="skill">Attack Surface Management (continuous discovery, risk-ranking)</div>
             <div class="skill">Security Automation for Scale (CI/CD controls, auto-recon of new endpoints)</div>
             <div class="skill">Attack Surface Management (continuous recon)</div>
-            <div class="skill">Burp Suite, Postman, SoapUI (Testing Tools)</div>
+            
         </div>
 
         <div class="section">
@@ -289,7 +325,7 @@
             
             <p><strong>> Secure System Engineering</strong></p>
             <p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
-            <br>
+
             <p><strong>> Application & API Security Research</strong></p>
             <p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications.</p>
 
@@ -319,16 +355,16 @@
         <div class="section">
             <h2 id="education">06_Database (Education)</h2>
             <p><strong>> Micro Credit Course in Advanced Cyber Security</strong><br>
-            Indian Institute of Technology Guwahati (Remote) | Sep 2024 - June 2025</p>
+            Indian Institute of Technology Guwahati (Remote)</p>
             <p><strong>> Bachelors of Computer and Application</strong><br>
-            Maharaja Agrasen Himalayan Garhwal University | 2021 - 2024</p>
+            </p>
             <p><strong>> Diploma in Computer Science</strong><br>
-            Maharaja Agrasen Himalayan Garhwal University | 2018 - 2021</p>
+            </p>
         </div>
 
         <div class="section">
             <h2>07_Offline_Mode (Location)</h2>
-            <p>Based in India, specifically Dehradun, Uttarakhand.</p>
+            <p>Based in India.</p>
         </div>
 
         <footer style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #666;">
