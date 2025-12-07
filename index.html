@@ -11,12 +11,24 @@
         }
         body {
             /* Dark Background for the whole page */
-            background-color: #0d1117; /* Slightly darker page background */
+            background-color: #0d1117; 
             color: #f0f0f0; 
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 40px 20px; /* Padding around the main window */
+            padding: 40px 20px; 
             line-height: 1.6;
+        }
+
+        /* 🆕 CANVAS STYLING: Positions the canvas as a static background layer */
+        #bg-canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Layer 0: Ensure it's the very bottom layer */
+            opacity: 0.1; /* Keeps the background subtle */
         }
 
         /* NEW WINDOW FRAME STYLING */
@@ -28,11 +40,14 @@
             border: 1px solid #333;
             border-radius: 6px;
             overflow: hidden;
+            /* Ensures the content window sits above the canvas */
+            position: relative; 
+            z-index: 10; 
         }
 
         /* SIMULATED TITLE BAR */
         .title-bar {
-            background-color: #333333; /* Dark Gray Title Bar */
+            background-color: #333333; 
             color: #f0f0f0;
             padding: 8px 15px;
             display: flex;
@@ -88,7 +103,6 @@
         
         /* TABBED NAVIGATION BAR STYLE */
         .nav-bar {
-            /* Positioned directly under the title bar */
             background-color: #242424; /* Darker bar for the tabs */
             border-bottom: 1px solid #ff4444; /* Red separator line */
             padding: 0;
@@ -102,9 +116,9 @@
             font-size: 0.8em;
             text-decoration: none;
             padding: 8px 15px;
-            margin-right: 1px; /* Small space between tabs */
+            margin-right: 1px; 
             border-right: 1px solid #333;
-            border-bottom: 3px solid transparent; /* default state */
+            border-bottom: 3px solid transparent; 
             transition: all 0.2s;
         }
         /* Highlight the active/hovered tab */
@@ -113,11 +127,11 @@
             background-color: #111111;
             border-bottom: 3px solid #ff4444; /* Red line under the tab */
         }
-        .nav-bar a:active, .nav-bar a:focus { /* Optional: style for when a tab is clicked/focused */
-            border-bottom: 3px solid #ff4444; 
-        }
-        .nav-bar a:link, .nav-bar a:visited {
-            border-bottom: none; /* Reset standard link style */
+        /* 🆕 Active Tab Style (for initial load) */
+        .nav-bar a.active { 
+            color: #ff4444; /* Red text */
+            background-color: #111111; /* Dark background */
+            border-bottom: 3px solid #ff4444; /* Red line under the tab */
         }
 
         /* SKILL TAGS */
@@ -134,9 +148,18 @@
             50% { opacity: 1; }
             100% { opacity: 0; }
         }
+
+        /* 🆕 DESKTOP WIDTH FIX */
+        @media (min-width: 1200px) {
+            .window-frame {
+                max-width: 1100px; 
+            }
+        }
     </style>
 </head>
 <body>
+
+<canvas id="bg-canvas"></canvas>
 
 <div class="window-frame">
 
@@ -150,7 +173,7 @@
     </div>
 
     <nav class="nav-bar">
-        <a href="#about">About</a>
+        <a href="#about" class="active">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects/Research</a>
@@ -207,10 +230,13 @@
             
             <p><strong>> Secure System Engineering</strong></p>
             <p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
+            <br>
             <p><strong>> Application & API Security Research</strong></p>
             <p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications.</p>
+
             <p><strong>> Cloud & Distributed System Security</strong></p>
             <p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>
+            
             <p><strong>> Vulnerability Discovery & Offensive Testing</strong></p>
             <p>Hands-on testing through **Bug Bounty Hunting** and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions. </p>
             
