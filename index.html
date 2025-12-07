@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        /* 🆕 CANVAS STYLING: Positions the canvas as a static background layer */
+        /* 🆕 SCAN LINE EFFECT: Animated background overlay (CSS only movement) */
         #bg-canvas {
             display: block;
             position: fixed;
@@ -27,20 +27,29 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0; /* Layer 0: Ensure it's the very bottom layer */
-            opacity: 0.1; /* Keeps the background subtle */
+            z-index: 0; 
+            opacity: 0.1; 
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                rgba(255, 68, 68, 0.05) 1px, 
+                transparent 2px,
+                transparent 5px
+            );
+            background-size: 100% 5px; 
+            animation: scanLineMove 15s linear infinite; 
         }
-
+        
         /* NEW WINDOW FRAME STYLING */
         .window-frame {
-            background-color: #111111; /* Console Black background for content */
+            background-color: #111111; 
             max-width: 850px;
             margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            /* 🆕 NEON GLOW WINDOW EFFECT: Subtle red glow around the frame */
+            box-shadow: 0 0 10px rgba(255, 68, 68, 0.5), 0 0 20px rgba(0, 0, 0, 0.5);
             border: 1px solid #333;
             border-radius: 6px;
             overflow: hidden;
-            /* Ensures the content window sits above the canvas */
             position: relative; 
             z-index: 10; 
         }
@@ -65,12 +74,11 @@
             border-radius: 50%;
             display: inline-block;
         }
-        .title-bar .controls .close { background-color: #ff5f56; } /* Red */
-        .title-bar .controls .minimize { background-color: #ffbd2e; } /* Yellow */
-        .title-bar .controls .maximize { background-color: #27c93f; } /* Green */
+        .title-bar .controls .close { background-color: #ff5f56; } 
+        .title-bar .controls .minimize { background-color: #ffbd2e; } 
+        .title-bar .controls .maximize { background-color: #27c93f; } 
         
         .container {
-            /* Padding inside the window frame */
             padding: 20px;
             max-width: 800px; 
             margin: 0 auto;
@@ -79,8 +87,10 @@
         /* CONTENT STYLES */
         h1, h2 {
             text-transform: uppercase;
-            border-bottom: 2px solid #ff4444; /* Red Accent */
+            border-bottom: 2px solid #ff4444; 
             padding-bottom: 10px;
+            /* 🆕 NEON GLOW TEXT EFFECT */
+            text-shadow: 0 0 3px #ff4444;
         }
         h1 { font-size: 2.5em; }
         .section { margin-bottom: 40px; }
@@ -101,13 +111,38 @@
             color: #111111; 
         }
         
+        /* 🆕 FAKE TYPING ANIMATION STYLES */
+        .typing-container {
+            /* Sets the visible area for the typing animation */
+            overflow: hidden; 
+            /* Width based on the number of characters in the H1 text (24 characters) */
+            width: 25.5em; 
+            white-space: nowrap;
+            /* Combines the typing and cursor blink animations */
+            animation: 
+                typing 3.5s steps(24, end) forwards;
+        }
+        .typing-container h1 {
+            /* Remove glow/shadow from the main h1 during the typing phase */
+            text-shadow: none;
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            display: inline-block; /* Essential for sizing the text */
+        }
+        /* Style for the blinking cursor at the end of the typing */
+        .typing-container h1 .cursor {
+            margin-left: 5px;
+        }
+
+
         /* TABBED NAVIGATION BAR STYLE */
         .nav-bar {
-            background-color: #242424; /* Darker bar for the tabs */
-            border-bottom: 1px solid #ff4444; /* Red separator line */
+            background-color: #242424; 
+            border-bottom: 1px solid #ff4444; 
             padding: 0;
             display: flex;
-            justify-content: flex-start; /* Align tabs to the left */
+            justify-content: flex-start; 
             flex-wrap: wrap;
         }
         .nav-bar a {
@@ -121,28 +156,26 @@
             border-bottom: 3px solid transparent; 
             transition: all 0.2s;
         }
-        /* Highlight the active/hovered tab */
         .nav-bar a:hover {
-            color: #ff4444; /* Red hover accent */
+            color: #ff4444; 
             background-color: #111111;
-            border-bottom: 3px solid #ff4444; /* Red line under the tab */
+            border-bottom: 3px solid #ff4444; 
         }
-        /* Active Tab Style (for initial load) */
         .nav-bar a.active { 
-            color: #ff4444; /* Red text */
-            background-color: #111111; /* Dark background */
-            border-bottom: 3px solid #ff4444; /* Red line under the tab */
+            color: #ff4444; 
+            background-color: #111111; 
+            border-bottom: 3px solid #ff4444; 
         }
-
-        /* 🆕 LOADING STATUS STYLES */
+        
+        /* LOADING STATUS STYLES */
         .loading-cert {
-            color: #aaaaaa; /* Grey out the main text */
+            color: #aaaaaa; 
             font-weight: normal;
         }
         .loading-status {
-            color: #ffbd2e; /* Yellow color for the loading text */
+            color: #ffbd2e; 
             font-weight: bold;
-            animation: blink 1.5s step-end infinite; /* Uses the blink animation */
+            animation: blink 1.5s step-end infinite; 
             margin-left: 5px;
             font-size: 0.8em;
         }
@@ -156,13 +189,23 @@
             font-size: 0.9em;
         }
 
+        /* --- KEYFRAMES --- */
         @keyframes blink {
             0% { opacity: 0; }
             50% { opacity: 1; }
             100% { opacity: 0; }
         }
+        @keyframes scanLineMove {
+            from { background-position: 0 0; }
+            to { background-position: 0 100vh; } 
+        }
+        /* 🆕 Keyframe for the typing effect (makes the text appear gradually) */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 25.5em; } 
+        }
 
-        /* 🆕 DESKTOP WIDTH FIX */
+        /* DESKTOP WIDTH FIX */
         @media (min-width: 1200px) {
             .window-frame {
                 max-width: 1100px; 
@@ -197,7 +240,9 @@
     <div class="container">
     
         <header style="text-align: center; margin-bottom: 50px;">
-            <h1>himansh@portfolio:~# <span class="cursor"></span></h1>
+            <div class="typing-container">
+                <h1>himansh@portfolio:~# <span class="cursor"></span></h1>
+            </div>
             <p>[ Security Engineer | Secure Architecture | Attack Surface Reduction at Scale ]</p>
             <p>
                 <a href="www.linkedin.com/in/himanshh" target="_blank">LinkedIn</a> | 
@@ -217,7 +262,7 @@
         <div class="section">
             <h2 id="skills">02_Arsenal (Skills)</h2>
             <p>> Loading modules...</p>
-            <div class="skill">Cloud Security — secure virtualization, identity boundaries, resilient distributed architectures</div>
+            <div class="skill">Distributed Systems Security (trust boundaries, replication risks, failure security)</div>
             <div class="skill">Advanced API & Web Security (GraphQL, async APIs, object-level exploits)</div>
             <div class="skill">Vulnerability Assessment & Exploit Analysis</div>
             <div class="skill">Identity & Access Security (OAuth2, OIDC, session integrity)</div>
@@ -243,10 +288,13 @@
             
             <p><strong>> Secure System Engineering</strong></p>
             <p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
+        
             <p><strong>> Application & API Security Research</strong></p>
             <p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications.</p>
+
             <p><strong>> Cloud & Distributed System Security</strong></p>
-            <p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>         
+            <p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>
+            
             <p><strong>> Vulnerability Discovery & Offensive Testing</strong></p>
             <p>Hands-on testing through **Bug Bounty Hunting** and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions. </p>
             
@@ -270,7 +318,7 @@
         <div class="section">
             <h2 id="education">06_Database (Education)</h2>
             <p><strong>> Micro Credit Course in Advanced Cyber Security</strong><br>
-            Indian Institute of Technology Guwahati (Remote) </p>
+            </p>
             <p><strong>> Bachelors of Computer and Application</strong><br>
             </p>
             <p><strong>> Diploma in Computer Science</strong><br>
