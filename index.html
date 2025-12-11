@@ -1,9 +1,16 @@
+Yes, it is absolutely possible to create that style of website using only HTML and CSS in a single code set.
+
+I have taken the most enhanced version of the terminal theme (Green Neon Glow, Animated Scan Lines, Typing Animation, and Glitch on Hover) and populated the content using the data from your previous code snippets (name, education, experience, and certifications).
+
+Here is the complete, single-file HTML and CSS code:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himansh - Cybersecurity Professional</title>
+    <title>Himanshu Dewali - Cybersecurity Professional</title>
     <style>
         /* CORE THEME SETTINGS */
         html {
@@ -12,12 +19,16 @@
         body {
             /* Dark Background for the whole page */
             background-color: #0d1117; 
-            color: #f0f0f0; 
+            color: #f0f0f0; /* Off-white text */
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 40px 20px; 
             line-height: 1.6;
         }
+
+        /* -------------------------------------- */
+        /* --- ANIMATED BACKGROUND & GLOW --- */
+        /* -------------------------------------- */
 
         /* SCAN LINE EFFECT: Animated background overlay (CSS only movement) */
         #bg-canvas {
@@ -29,6 +40,7 @@
             height: 100%;
             z-index: 0; 
             opacity: 0.1; 
+            /* Green subtle scan lines */
             background: repeating-linear-gradient(
                 to bottom,
                 transparent 0px,
@@ -54,6 +66,10 @@
             z-index: 10; 
         }
 
+        /* -------------------------------------- */
+        /* --- NAVIGATION & UTILITY --- */
+        /* -------------------------------------- */
+
         /* SIMULATED TITLE BAR */
         .title-bar {
             background-color: #333333; 
@@ -74,6 +90,7 @@
             border-radius: 50%;
             display: inline-block;
         }
+        /* Keeping the window controls their standard traffic light colors */
         .title-bar .controls .close { background-color: #ff5f56; } 
         .title-bar .controls .minimize { background-color: #ffbd2e; } 
         .title-bar .controls .maximize { background-color: #27c93f; } 
@@ -84,60 +101,6 @@
             margin: 0 auto;
         }
         
-        /* CONTENT STYLES */
-        h1, h2 {
-            text-transform: uppercase;
-            /* GREEN HEADLINE ACCENT */
-            border-bottom: 2px solid #00FF00; 
-            padding-bottom: 10px;
-            /* GREEN NEON GLOW TEXT EFFECT */
-            text-shadow: 0 0 3px #00FF00;
-        }
-        h1 { font-size: 2.5em; }
-        .section { margin-bottom: 40px; }
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            /* GREEN CURSOR */
-            background-color: #00FF00; 
-            animation: blink 1s infinite;
-        }
-
-        /* 🆕 GLITCH EFFECT TRIGGER */
-        h2:hover {
-            animation: glitch 0.5s infinite;
-        }
-
-        a { 
-            color: #9cdcfe; 
-            text-decoration: none; 
-            border-bottom: 1px dotted #9cdcfe; 
-        }
-        a:hover { 
-            background-color: #9cdcfe; 
-            color: #111111; 
-        }
-        
-        /* FAKE TYPING ANIMATION STYLES */
-        .typing-container {
-            overflow: hidden; 
-            width: 25.5em; 
-            white-space: nowrap;
-            animation: 
-                typing 3.5s steps(24, end) forwards;
-        }
-        .typing-container h1 {
-            text-shadow: none;
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-            display: inline-block; 
-        }
-        .typing-container h1 .cursor {
-            margin-left: 5px;
-        }
-
         /* TABBED NAVIGATION BAR STYLE */
         .nav-bar {
             background-color: #242424; 
@@ -161,17 +124,76 @@
         }
         /* Highlight the active/hovered tab in GREEN */
         .nav-bar a:hover {
-            color: #00FF00; 
+            color: #00FF00; /* Green hover accent */
             background-color: #111111;
-            border-bottom: 3px solid #00FF00; 
+            border-bottom: 3px solid #00FF00; /* Green line under the tab */
         }
         /* Active Tab Style (for initial load) in GREEN */
         .nav-bar a.active { 
-            color: #00FF00; 
+            color: #00FF00; /* Green text */
             background-color: #111111; 
-            border-bottom: 3px solid #00FF00; 
+            border-bottom: 3px solid #00FF00; /* Green line under the tab */
+        }
+
+        /* -------------------------------------- */
+        /* --- TEXT & ANIMATION STYLES --- */
+        /* -------------------------------------- */
+
+        /* CONTENT STYLES */
+        h1, h2 {
+            text-transform: uppercase;
+            /* GREEN HEADLINE ACCENT */
+            border-bottom: 2px solid #00FF00; 
+            padding-bottom: 10px;
+            /* GREEN NEON GLOW TEXT EFFECT */
+            text-shadow: 0 0 3px #00FF00;
+        }
+        h1 { font-size: 2.5em; }
+        .section { margin-bottom: 40px; }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            /* GREEN CURSOR */
+            background-color: #00FF00; 
+            animation: blink 1s infinite;
+        }
+
+        /* GLITCH EFFECT TRIGGER */
+        h2:hover {
+            animation: glitch 0.5s infinite;
+        }
+
+        a { 
+            color: #9cdcfe; 
+            text-decoration: none; 
+            border-bottom: 1px dotted #9cdcfe; 
+        }
+        a:hover { 
+            background-color: #9cdcfe; 
+            color: #111111; 
         }
         
+        /* FAKE TYPING ANIMATION STYLES */
+        .typing-container {
+            overflow: hidden; 
+            /* Width based on the characters in the H1 text (24 characters) */
+            width: 25.5em; 
+            white-space: nowrap;
+            animation: 
+                typing 3.5s steps(24, end) forwards;
+        }
+        .typing-container h1 {
+            text-shadow: none;
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            display: inline-block; 
+        }
+        .typing-container h1 .cursor {
+            margin-left: 5px;
+        }
+
         /* LOADING STATUS STYLES (Kept Yellow for 'In Progress') */
         .loading-cert {
             color: #aaaaaa; 
@@ -194,7 +216,9 @@
             font-size: 0.9em;
         }
 
+        /* -------------------------------------- */
         /* --- KEYFRAMES --- */
+        /* -------------------------------------- */
         @keyframes blink {
             0% { opacity: 0; }
             50% { opacity: 1; }
@@ -208,8 +232,7 @@
             from { width: 0; }
             to { width: 25.5em; } 
         }
-
-        /* 🆕 GLITCH EFFECT KEYFRAMES */
+        /* GLITCH EFFECT KEYFRAMES (combining Green and Red for a disruptive look) */
         @keyframes glitch {
             0% {
                 text-shadow: 0.05em 0 0 #00FF00, -0.05em 0 0 #ff4444;
@@ -257,7 +280,7 @@
 <div class="window-frame">
 
     <div class="title-bar">
-        <span class="filename">HIMANSH_PORTFOLIO.RUN</span>
+        <span class="filename">HIMANSHU_DEWALI.RUN</span>
         <div class="controls">
             <span class="close"></span>
             <span class="minimize"></span>
@@ -282,7 +305,7 @@
             </div>
             <p>[ Security Engineer | Secure Architecture | Attack Surface Reduction at Scale ]</p>
             <p>
-                <a href="www.linkedin.com/in/himanshh" target="_blank">LinkedIn</a> | 
+                <a href="https://www.linkedin.com/in/himanshh" target="_blank">LinkedIn</a> | 
                 <a href="YOUR_GITHUB_URL" target="_blank">GitHub</a> | 
                 <a href="mailto:himansh.sec.eng@gmail.com">himansh.sec.eng@gmail.com</a>
             </p>
@@ -306,7 +329,7 @@
             <div class="skill">Attack Surface Management (continuous discovery, risk-ranking)</div>
             <div class="skill">Security Automation for Scale (CI/CD controls, auto-recon of new endpoints)</div>
             <div class="skill">Attack Surface Management (continuous recon)</div>
-            
+            <div class="skill">Burp Suite, Postman, SoapUI (Testing Tools)</div>
         </div>
 
         <div class="section">
@@ -314,9 +337,15 @@
             
             <p><strong>> Cybersecurity Analyst | In Technet Limited, Hyderabad</strong> <br>
             <em>Mar 2023 - Jun 2025</em> </p>
-            
+            <p>
+                Conducted 30+ Penetration Tests on Web applications and APIs, Identifying and classifying over 150 vulnerabilities, including 15+ critical flaws like SQLi and BAC. Analyzed and documented critical security flaws, providing detailed risk assessment for each finding.
+            </p>
+
             <p><strong>> Project Intern | MentorMind (Remote)</strong> <br>
             <em>Aug 2023 - Oct 2023</em> </p>
+            <p>
+                Developed a secure e-commerce application, conducting comprehensive VAPT to identify and report on critical vulnerabilities. Assisted in prioritising and implementing fixes, ensuring the application was robust and complied with security standards.
+            </p>
             
         </div>
 
@@ -325,13 +354,7 @@
             
             <p><strong>> Secure System Engineering</strong></p>
             <p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
-
-            <p><strong>> Application & API Security Research</strong></p>
-            <p>Focused on identifying high-impact implementation flaws, authentication bypasses, and business logic weaknesses in web and cloud-native applications.</p>
-
-            <p><strong>> Cloud & Distributed System Security</strong></p>
-            <p>Studying security in large-scale, multi-region systems — including identity boundaries, data consistency threats, and resilience against failure and abuse.</p>
-            
+            <br>
             <p><strong>> Vulnerability Discovery & Offensive Testing</strong></p>
             <p>Hands-on testing through **Bug Bounty Hunting** and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions. </p>
             
@@ -355,20 +378,23 @@
         <div class="section">
             <h2 id="education">06_Database (Education)</h2>
             <p><strong>> Micro Credit Course in Advanced Cyber Security</strong><br>
-            Indian Institute of Technology Guwahati (Remote)</p>
+            Indian Institute of Technology Guwahati (Remote) | Sep 2024 - June 2025</p>
+            <p>Completed a micro credit course in advanced cyber security, a joint initiative by IIT Guwahati, AccioJobs and NSDC, focused on developing hands-on, industry-relevant skills.</p>
+
             <p><strong>> Bachelors of Computer and Application</strong><br>
-            </p>
+            M</p>
+            
             <p><strong>> Diploma in Computer Science</strong><br>
             </p>
         </div>
 
         <div class="section">
             <h2>07_Offline_Mode (Location)</h2>
-            <p>Based in India.</p>
+            <p>Based in Dehradun, Uttarakhand, India.</p>
         </div>
 
         <footer style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #666;">
-            <p>System Status: ONLINE | Built by Himansh</p>
+            <p>System Status: ONLINE | Built by Himanshu Dewali</p>
         </footer>
 
     </div>
@@ -376,3 +402,4 @@
 
 </body>
 </html>
+```
