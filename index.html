@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,394 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Himanshu Dewali - Cybersecurity Professional</title>
     <style>
-        /* CORE THEME SETTINGS */
-        html {
-            scroll-behavior: smooth; 
-        }
+        /* Minimalist CSS to enhance readability on any device */
         body {
-            /* Dark Background for the whole page */
-            background-color: #0d1117; 
-            color: #f0f0f0; /* Off-white text */
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 40px 20px; 
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
-        }
-
-        /* -------------------------------------- */
-        /* --- ANIMATED BACKGROUND & GLOW --- */
-        /* -------------------------------------- */
-
-        /* SCAN LINE EFFECT: Animated background overlay (CSS only movement) */
-        #bg-canvas {
-            display: block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0; 
-            opacity: 0.1; 
-            /* Green subtle scan lines */
-            background: repeating-linear-gradient(
-                to bottom,
-                transparent 0px,
-                rgba(0, 255, 0, 0.05) 1px, /* Sublte Green Line */
-                transparent 2px,
-                transparent 5px
-            );
-            background-size: 100% 5px; 
-            animation: scanLineMove 15s linear infinite; 
-        }
-        
-        /* NEW WINDOW FRAME STYLING */
-        .window-frame {
-            background-color: #111111; 
-            max-width: 850px;
+            color: #333; /* Dark gray text */
             margin: 0 auto;
-            /* NEON GLOW WINDOW EFFECT: Subtle Green glow around the frame */
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.5);
-            border: 1px solid #333;
-            border-radius: 6px;
-            overflow: hidden;
-            position: relative; 
-            z-index: 10; 
-        }
-
-        /* -------------------------------------- */
-        /* --- NAVIGATION & UTILITY --- */
-        /* -------------------------------------- */
-
-        /* SIMULATED TITLE BAR */
-        .title-bar {
-            background-color: #333333; 
-            color: #f0f0f0;
-            padding: 8px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9em;
-        }
-        .title-bar .controls {
-            display: flex;
-            gap: 6px;
-        }
-        .title-bar .controls span {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        /* Keeping the window controls their standard traffic light colors */
-        .title-bar .controls .close { background-color: #ff5f56; } 
-        .title-bar .controls .minimize { background-color: #ffbd2e; } 
-        .title-bar .controls .maximize { background-color: #27c93f; } 
-        
-        .container {
+            max-width: 800px; /* Essential for good readability */
             padding: 20px;
-            max-width: 800px; 
-            margin: 0 auto;
-        }
-        
-        /* TABBED NAVIGATION BAR STYLE */
-        .nav-bar {
-            background-color: #242424; 
-            /* GREEN accent line */
-            border-bottom: 1px solid #00FF00; 
-            padding: 0;
-            display: flex;
-            justify-content: flex-start; 
-            flex-wrap: wrap;
-        }
-        .nav-bar a {
-            color: #f0f0f0;
-            text-transform: uppercase;
-            font-size: 0.8em;
-            text-decoration: none;
-            padding: 8px 15px;
-            margin-right: 1px; 
-            border-right: 1px solid #333;
-            border-bottom: 3px solid transparent; 
-            transition: all 0.2s;
-        }
-        /* Highlight the active/hovered tab in GREEN */
-        .nav-bar a:hover {
-            color: #00FF00; /* Green hover accent */
-            background-color: #111111;
-            border-bottom: 3px solid #00FF00; /* Green line under the tab */
-        }
-        /* Active Tab Style (for initial load) in GREEN */
-        .nav-bar a.active { 
-            color: #00FF00; /* Green text */
-            background-color: #111111; 
-            border-bottom: 3px solid #00FF00; /* Green line under the tab */
         }
 
-        /* -------------------------------------- */
-        /* --- TEXT & ANIMATION STYLES --- */
-        /* -------------------------------------- */
+        h1, h2, h3 {
+            color: #111;
+            margin-top: 1.5em;
+        }
 
-        /* CONTENT STYLES */
-        h1, h2 {
-            text-transform: uppercase;
-            /* GREEN HEADLINE ACCENT */
-            border-bottom: 2px solid #00FF00; 
+        h1 {
+            border-bottom: 2px solid #ccc;
             padding-bottom: 10px;
-            /* GREEN NEON GLOW TEXT EFFECT */
-            text-shadow: 0 0 3px #00FF00;
-        }
-        h1 { font-size: 2.5em; }
-        .section { margin-bottom: 40px; }
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            /* GREEN CURSOR */
-            background-color: #00FF00; 
-            animation: blink 1s infinite;
         }
 
-        /* GLITCH EFFECT TRIGGER */
-        h2:hover {
-            animation: glitch 0.5s infinite;
+        a {
+            color: #007bff; /* Standard blue link color */
+            text-decoration: none;
         }
 
-        a { 
-            color: #9cdcfe; 
-            text-decoration: none; 
-            border-bottom: 1px dotted #9cdcfe; 
+        a:hover {
+            text-decoration: underline;
         }
-        a:hover { 
-            background-color: #9cdcfe; 
-            color: #111111; 
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        .contact-info a {
+            margin-right: 15px;
         }
         
-        /* FAKE TYPING ANIMATION STYLES */
-        .typing-container {
-            overflow: hidden; 
-            /* Width based on the characters in the H1 text (24 characters) */
-            width: 25.5em; 
-            white-space: nowrap;
-            animation: 
-                typing 3.5s steps(24, end) forwards;
+        /* Simple separation for sections */
+        .section-separator {
+            margin: 40px 0;
+            border: 0;
+            border-top: 1px solid #eee;
         }
-        .typing-container h1 {
-            text-shadow: none;
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-            display: inline-block; 
-        }
-        .typing-container h1 .cursor {
-            margin-left: 5px;
+        
+        /* Style for skill tags to be readable but separate */
+        .skill-list {
+            list-style: none;
+            padding: 0;
         }
 
-        /* LOADING STATUS STYLES (Kept Yellow for 'In Progress') */
-        .loading-cert {
-            color: #aaaaaa; 
-            font-weight: normal;
-        }
-        .loading-status {
-            color: #ffbd2e; 
-            font-weight: bold;
-            animation: blink 1.5s step-end infinite; 
-            margin-left: 5px;
-            font-size: 0.8em;
-        }
-
-        /* SKILL TAGS */
-        .skill {
-            border: 1px solid #f0f0f0; 
-            padding: 5px 10px;
+        .skill-list li {
             display: inline-block;
-            margin: 5px;
+            margin: 5px 8px 5px 0;
+            padding: 4px 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
             font-size: 0.9em;
+            background-color: #f7f7f7;
         }
 
-        /* -------------------------------------- */
-        /* --- KEYFRAMES --- */
-        /* -------------------------------------- */
-        @keyframes blink {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-        @keyframes scanLineMove {
-            from { background-position: 0 0; }
-            to { background-position: 0 100vh; } 
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 25.5em; } 
-        }
-        /* GLITCH EFFECT KEYFRAMES (combining Green and Red for a disruptive look) */
-        @keyframes glitch {
-            0% {
-                text-shadow: 0.05em 0 0 #00FF00, -0.05em 0 0 #ff4444;
-                transform: translate(0.01em, 0.01em);
-            }
-            15% {
-                text-shadow: -0.05em 0 0 #00FF00, 0.05em 0 0 #ff4444;
-                transform: translate(-0.01em, -0.01em);
-            }
-            30% {
-                text-shadow: 0.02em 0 0 #00FF00, -0.02em 0 0 #ff4444;
-                transform: translate(0.01em, -0.01em);
-            }
-            45% {
-                text-shadow: -0.02em 0 0 #00FF00, 0.02em 0 0 #ff4444;
-                transform: translate(-0.01em, 0.01em);
-            }
-            60% {
-                text-shadow: 0.01em 0 0 #00FF00, -0.01em 0 0 #ff4444;
-                transform: translate(0, 0);
-            }
-            75% {
-                text-shadow: -0.01em 0 0 #00FF00, 0.01em 0 0 #ff4444;
-                transform: translate(0, 0);
-            }
-            100% {
-                text-shadow: 0 0 0 #00FF00, 0 0 0 #ff4444;
-                transform: translate(0, 0);
-            }
-        }
-
-
-        /* DESKTOP WIDTH FIX */
-        @media (min-width: 1200px) {
-            .window-frame {
-                max-width: 1100px; 
-            }
-        }
     </style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-
-<div class="window-frame">
-
-    <div class="title-bar">
-        <span class="filename">HIMANSHU_DEWALI.RUN</span>
-        <div class="controls">
-            <span class="close"></span>
-            <span class="minimize"></span>
-            <span class="maximize"></span>
+    <header>
+        <h1>Himanshu Dewali</h1>
+        <p>Security Engineer | Secure Architecture | Attack Surface Reduction at Scale</p>
+        
+        <div class="contact-info">
+            <a href="https://www.linkedin.com/in/himanshh" target="_blank">LinkedIn</a>
+            <a href="YOUR_GITHUB_URL" target="_blank">GitHub</a>
+            <a href="mailto:himansh.sec.eng@gmail.com">himansh.sec.eng@gmail.com</a>
         </div>
-    </div>
+        <hr class="section-separator">
+    </header>
 
-    <nav class="nav-bar">
-        <a href="#about" class="active">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects/Research</a>
-        <a href="#certs">Certs</a>
-        <a href="#education">Education</a>
-    </nav>
-    
-    <div class="container">
-    
-        <header style="text-align: center; margin-bottom: 50px;">
-            <div class="typing-container">
-                <h1>himansh@portfolio:~# <span class="cursor"></span></h1>
-            </div>
-            <p>[ Security Engineer | Secure Architecture | Attack Surface Reduction at Scale ]</p>
+    <main>
+        <section id="about">
+            <h2>About</h2>
             <p>
-                <a href="https://www.linkedin.com/in/himanshh" target="_blank">LinkedIn</a> | 
-                <a href="YOUR_GITHUB_URL" target="_blank">GitHub</a> | 
-                <a href="mailto:himansh.sec.eng@gmail.com">himansh.sec.eng@gmail.com</a>
+                I specialize in vulnerability analysis and secure design for distributed and cloud applications. I focus on clear threat boundaries, reliable controls, and early detection of high-impact risks. My approach is grounded in collaboration with engineers and delivering security improvements that actually stick.
             </p>
-        </header>
+        </section>
 
-        <div class="section">
-            <h2 id="about">01_Mission_Objective (About)</h2>
-            <p>
-                >Introduction...<br>
-                I specialize in vulnerability analysis and secure design for distributed and cloud applications. I focus on clear threat boundaries, reliable controls, and early detection of high-impact risks. My approach is grounded in collaboration with engineers and delivering security improvements that actually stick. 
-            </p>
-        </div>
-
-        <div class="section">
-            <h2 id="skills">02_Arsenal (Skills)</h2>
-            <p>> Loading modules...</p>
-            <div class="skill">Distributed Systems Security (trust boundaries, replication risks, failure security)</div>
-            <div class="skill">Advanced API & Web Security (GraphQL, async APIs, object-level exploits)</div>
-            <div class="skill">Vulnerability Assessment & Exploit Analysis</div>
-            <div class="skill">Identity & Access Security (OAuth2, OIDC, session integrity)</div>
-            <div class="skill">Attack Surface Management (continuous discovery, risk-ranking)</div>
-            <div class="skill">Security Automation for Scale (CI/CD controls, auto-recon of new endpoints)</div>
-            <div class="skill">Attack Surface Management (continuous recon)</div>
-            <div class="skill">Burp Suite, Postman, SoapUI (Testing Tools)</div>
-        </div>
-
-        <div class="section">
-            <h2 id="experience">03_Logs (Experience)</h2>
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul class="skill-list">
+                <li>Distributed Systems Security (trust boundaries, replication risks, failure security)</li>
+                <li>Advanced API & Web Security (GraphQL, async APIs, object-level exploits)</li>
+                <li>Vulnerability Assessment & Exploit Analysis</li>
+                <li>Identity & Access Security (OAuth2, OIDC, session integrity)</li>
+                <li>Attack Surface Management (continuous discovery, risk-ranking)</li>
+                <li>Security Automation for Scale (CI/CD controls, auto-recon of new endpoints)</li>
+                <li>Burp Suite, Postman, SoapUI (Testing Tools)</li>
+            </ul>
+        </section>
+        
+        <section id="experience">
+            <h2>Experience</h2>
             
-            <p><strong>> Cybersecurity Analyst | In Technet Limited, Hyderabad</strong> <br>
-            <em>Mar 2023 - Jun 2025</em> </p>
-            <p>
-                Conducted 30+ Penetration Tests on Web applications and APIs, Identifying and classifying over 150 vulnerabilities, including 15+ critical flaws like SQLi and BAC. Analyzed and documented critical security flaws, providing detailed risk assessment for each finding.
-            </p>
+            <h3>Cybersecurity Analyst | In Technet Limited, Hyderabad</h3>
+            <p><em>Mar 2023 - Jun 2025</em></p>
+            <ul>
+                <li>Conducted 30+ Penetration Tests on Web applications and APIs.</li>
+                <li>Identified and classified over 150 vulnerabilities, including 15+ critical flaws like SQLi and BAC.</li>
+                <li>Analyzed and documented critical security flaws, providing detailed risk assessment for each finding.</li>
+            </ul>
 
-            <p><strong>> Project Intern | MentorMind (Remote)</strong> <br>
-            <em>Aug 2023 - Oct 2023</em> </p>
-            <p>
-                Developed a secure e-commerce application, conducting comprehensive VAPT to identify and report on critical vulnerabilities. Assisted in prioritising and implementing fixes, ensuring the application was robust and complied with security standards.
-            </p>
-            
-        </div>
+            <h3>Project Intern | MentorMind (Remote)</h3>
+            <p><em>Aug 2023 - Oct 2023</em></p>
+            <ul>
+                <li>Developed a secure e-commerce application, conducting comprehensive VAPT.</li>
+                <li>Assisted in prioritising and implementing fixes, ensuring the application was robust and complied with security standards.</li>
+            </ul>
+        </section>
 
-        <div class="section">
-            <h2 id="projects">04_Operations (Projects / Research)</h2>
+        <section id="projects">
+            <h2>Projects / Research</h2>
             
-            <p><strong>> Secure System Engineering</strong></p>
+            <h3>Secure System Engineering</h3>
             <p>Exploring how operating systems enforce isolation, memory protection, and privilege boundaries — and how design decisions impact real-world security of modern workloads.</p>
-            <br>
-            <p><strong>> Vulnerability Discovery & Offensive Testing</strong></p>
-            <p>Hands-on testing through **Bug Bounty Hunting** and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions. </p>
             
-        </div>
+            <h3>Vulnerability Discovery & Offensive Testing</h3>
+            <p>Hands-on testing through Bug Bounty Hunting and lab environments (Hack The Box & Labs); validating theory with exploitation to strengthen secure design decisions.</p>
+        </section>
 
-        <div class="section">
-            <h2 id="certs">05_Credentials (Certs)</h2>
+        <section id="certifications">
+            <h2>Certifications</h2>
             <ul>
                 <li>Certified Ethical Hacker (CEH)</li>
                 <li>Certified Appsec Practitioner</li>
                 <li>Microsoft AZ-900</li>
-                <li class="loading-cert">
-                    OSCP <span class="loading-status">(LOADING...)</span>
-                </li>
-                <li class="loading-cert">
-                    CPTS <span class="loading-status">(LOADING...)</span>
-                </li>
+                <li>OSCP (In Progress)</li>
+                <li>CPTS (In Progress)</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 id="education">06_Database (Education)</h2>
-            <p><strong>> Sasters of research (MS)</strong><br>
-            Indian Institute of Technology Guwahati (Remote) | Sep 2024 - June 2025</p>
-            <p>Completed a micro credit course in advanced cyber security, a joint initiative by IIT Guwahati, AccioJobs and NSDC, focused on developing hands-on, industry-relevant skills.</p>
-
-            <p><strong>> Bachelors of Computer and Application</strong><br>
-            </p>
+        <section id="education">
+            <h2>Education</h2>
             
-            <p><strong>> Diploma in Computer Science</strong><br>
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>07_Offline_Mode (Location)</h2>
+            <h3>Micro Credit Course in Advanced Cyber Security</h3>
+            <p>Indian Institute of Technology Guwahati (Remote) | Sep 2024 - June 2025</p>
+            <p>Focus on hands-on, industry-relevant skills in advanced cyber security.</p>
+            
+            <h3>Bachelors of Computer and Application</h3>
+            <p>Maharaja Agrasen Himalayan Garhwal University | 2021 - 2024</p>
+            
+            <h3>Diploma in Computer Science</h3>
+            <p>Maharaja Agrasen Himalayan Garhwal University | 2018 - 2021</p>
+        </section>
+        
+        <section id="location">
+            <h2>Location</h2>
             <p>Based in Dehradun, Uttarakhand, India.</p>
-        </div>
+        </section>
+    </main>
 
-        <footer style="text-align: center; margin-top: 50px; font-size: 0.8em; color: #666;">
-            <p>System Status: ONLINE | Built by Himanshu Dewali</p>
-        </footer>
-
-    </div>
-</div>
+    <hr class="section-separator">
+    
+    <footer>
+        <p style="text-align: center; font-size: 0.8em; color: #666;">&copy; Himanshu Dewali | Updated 2025</p>
+    </footer>
 
 </body>
 </html>
-```
