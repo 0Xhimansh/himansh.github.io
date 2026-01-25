@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIMANSH | PRODSEC_ENGINEER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        background: '#080808',
+                        surface: '#0f0f0f',
+                        accent: '#f59e0b', // Amber
+                        critical: '#ef4444', // Red
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-slate-300 font-sans selection:bg-amber-500/30">
+    <!-- Grid Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-[0.03] overflow-hidden">
+        <div class="absolute inset-0" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+    </div>
+
+    <!-- Scanline Effect -->
+    <div class="scanline"></div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-white/5 bg-background/80 backdrop-blur-md py-4">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="font-mono text-amber-500 font-bold text-lg tracking-tighter">
+                HIMANSH<span class="text-white/20">.audit</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#proficiency" class="nav-link">Tools</a>
+                <a href="#projects" class="nav-link">Reports</a>
+                <a href="#certifications" class="nav-link">Certs</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden pt-20">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="relative z-10">
+            <div class="status-badge inline-block mb-6">
+                STATUS: IDLE_SCAN // HIMANSH // PRODSEC_ENGINEER // 2024
+            </div>
+            <h1 class="text-7xl md:text-9xl font-bold tracking-tighter text-white mb-4">
+                HIMANSH
+            </h1>
+            <p class="text-lg md:text-xl font-mono text-amber-500/70 tracking-widest uppercase">
+                Product Security & Offensive Engineering
+            </p>
+            
+            <div class="mt-16 flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#projects" class="btn-primary">ACCESS REPORTS</a>
+                <a href="#contact" class="btn-secondary">SECURE INQUIRY</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+        <!-- About Section (Centered Minimalist Dossier) -->
+        <section id="about" class="section-fade-in py-32 px-6 max-w-4xl mx-auto text-center">
+            <h2 class="section-header">// 01_DOSSIER</h2>
+            <h3 class="text-3xl md:text-5xl font-bold text-white mb-10 leading-tight">Securing the product ecosystem through an offensive-first philosophy.</h3>
+            <div class="space-y-6 text-slate-400 leading-relaxed text-xl">
+                <p>My approach to security is rooted in understanding how systems fail. As a Product Security Engineer, I bridge the gap between engineering velocity and security integrity. I specialize in identifying complex architectural vulnerabilities before they reach production.</p>
+                <p>Whether it is deep-diving into Android internals, auditing distributed API architectures, or hardening internal AD infrastructures, my goal remains the same: build resilient products that can withstand adversarial pressure.</p>
+            </div>
+        </section>
+
+        <!-- Experience Section (Professional Security Resume Style) -->
+        <section id="experience" class="py-32 px-6 border-y border-white/5 bg-surface/30">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="section-header text-center">// 02_FIELD_HISTORY</h2>
+                <div class="mt-16 space-y-16">
+                    <!-- TECHNET LIMITED -->
+                    <div class="experience-card group">
+                        <div class="flex flex-col md:flex-row justify-between mb-6">
+                            <div>
+                                <h4 class="text-2xl font-bold text-white group-hover:text-amber-500 transition-colors uppercase">Cybersecurity Analyst</h4>
+                                <p class="text-amber-500 font-mono text-sm uppercase tracking-wider">In TechNet Limited (Hyderabad / Remote)</p>
+                            </div>
+                            <div class="text-slate-500 font-mono text-sm mt-2 md:mt-0 uppercase">Mar 2023 – Jun 2025</div>
+                        </div>
+                        <ul class="space-y-4 text-slate-400 text-base leading-relaxed">
+                            <li class="flex gap-3"><span class="text-amber-500/50 mt-1.5">•</span> <span>Conducted 30+ penetration tests on web applications and APIs, identifying 150+ vulnerabilities, including 15+ critical issues (Broken Access Control, Authentication flaws).</span></li>
+                            <li class="flex gap-3"><span class="text-amber-500/50 mt-1.5">•</span> <span>Performed manual validation of automated scan results to eliminate false positives and deliver accurate, business-relevant findings.</span></li>
+                            <li class="flex gap-3"><span class="text-amber-500/50 mt-1.5">•</span> <span>Authored clear, developer-friendly security reports with risk ratings, exploitation scenarios, and remediation guidance.</span></li>
+                            <li class="flex gap-3"><span class="text-amber-500/50 mt-1.5">•</span> <span>Helped developers understand security findings in practical terms, improving fix velocity during development cycles.</span></li>
+                            <li class="flex gap-3"><span class="text-amber-500/50 mt-1.5">•</span> <span>Executed API security testing using Burp Suite, Postman, and SoapUI, focusing on auth flows, token handling, and logic-level abuse.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- MENTORMIND -->
+                    <div class="experience-card group">
+                        <div class="flex flex-col md:flex-row justify-between mb-6">
+                            <div>
+                                <h4 class="text-2xl font-bold text-white group-hover:text-amber-500 transition-colors uppercase">Project Intern</h4>
+                                <p class="text-amber-500 font-mono text-sm uppercase tracking-wider">MentorMind (Remote)</p>
+                            </div>
+                            <div class="text-slate-500 font-mono text-sm mt-2 md:mt-0 uppercase">Aug 2023 – Oct 2023</div>
+                        </div>
+                        <ul class="space-y-4 text-slate-400 text-base leading-relaxed">
+                            <li class="flex gap-3"><span class="text-amber-500/50 mt-1.5">•</span> <span>Built and assessed a secure e-commerce application, performing end-to-end VAPT across authentication, authorization, and business logic layers.</span></li>
+                            <li class="flex gap-3"><span class="text-amber-500/50 mt-1.5">•</span> <span>Identified and reported critical vulnerabilities, assisting in prioritization and secure implementation of fixes.</span></li>
+                            <li class="flex gap-3"><span class="text-amber-500/50 mt-1.5">•</span> <span>Ensured alignment with OWASP Top 10 and OWASP API Top 10 security standards.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology -->
+        <section id="how-i-think" class="py-32 px-6 max-w-6xl mx-auto">
+            <div class="max-w-3xl">
+                <h2 class="section-header">// 03_METHODOLOGY</h2>
+                <h3 class="text-4xl font-bold text-white mb-8">Security Philosophy</h3>
+                <div class="space-y-8 text-slate-300 italic font-light text-xl border-l-2 border-amber-500/40 pl-8 py-2">
+                    <p>"Security is not a checkbox; it is a continuous state of awareness. I believe in 'Trust but Verify' as a foundational principle, but in the realm of product security, 'Never Trust, Always Verify' is the only path to resilience."</p>
+                    <p>"An effective security engineer must think like the adversary to defend like the architect. It's about finding the one missing tile in a mosaic of thousands."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proficiency -->
+        <section id="proficiency" class="py-32 px-6 bg-surface/20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="section-header text-center">// 04_SECURITY_PROFICIENCY</h2>
+                <div class="grid md:grid-cols-3 gap-8 mt-16">
+                    <div class="proficiency-card">
+                        <h4 class="text-lg font-mono font-bold text-white mb-6 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-amber-500"></span> WEB & API
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tool-badge">Burp Suite</span>
+                            <span class="tool-badge">Postman</span>
+                            <span class="tool-badge">Intruder</span>
+                            <span class="tool-badge">Repeater</span>
+                            <span class="tool-badge">Custom Fuzzers</span>
+                        </div>
+                    </div>
+                    <div class="proficiency-card">
+                        <h4 class="text-lg font-mono font-bold text-white mb-6 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-amber-500"></span> MOBILE (ANDROID)
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tool-badge">Frida</span>
+                            <span class="tool-badge">Objection</span>
+                            <span class="tool-badge">jadx</span>
+                            <span class="tool-badge">apktool</span>
+                            <span class="tool-badge">MobSF</span>
+                            <span class="tool-badge">Android Studio</span>
+                            <span class="tool-badge">ADB</span>
+                        </div>
+                    </div>
+                    <div class="proficiency-card">
+                        <h4 class="text-lg font-mono font-bold text-white mb-6 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-amber-500"></span> AD & INTERNAL
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tool-badge">BloodHound</span>
+                            <span class="tool-badge">PowerView</span>
+                            <span class="tool-badge">CrackMapExec</span>
+                            <span class="tool-badge">Rubeus</span>
+                            <span class="tool-badge">Impacket</span>
+                            <span class="tool-badge">Sliver</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="py-32 px-6 max-w-6xl mx-auto">
+            <h2 class="section-header text-center">// 05_PROJECT_DEEP_DIVES</h2>
+            <div class="grid md:grid-cols-2 gap-8 mt-16">
+                <!-- Project 811 -->
+                <div class="project-card">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-[10px] font-mono text-amber-500 tracking-widest uppercase">CASE STUDY ID: PROJ_811</span>
+                        <span class="severity-critical">CRITICAL</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Enterprise SaaS Authorization Chain Break</h4>
+                    <div class="space-y-3 text-sm text-slate-400">
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Problem:</strong> A multi-tenant SaaS platform trusted client-controlled identifiers across chained API calls, allowing lateral movement between tenant boundaries.</p>
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Surface:</strong> GraphQL + REST APIs</p>
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Vuln Class:</strong> BOLA / Authorization Logic Flaw</p>
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Impact:</strong> Cross-tenant data exposure across enterprise customers.</p>
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Fix:</strong> Centralized authorization layer enforcing tenant-bound object ownership on every resolver.</p>
+                    </div>
+                    <button class="mt-8 text-xs font-mono text-amber-500 hover:text-amber-400 flex items-center gap-2">
+                        DECRYPT CASE STUDY →
+                    </button>
+                </div>
+
+                <!-- Project 904 -->
+                <div class="project-card">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-[10px] font-mono text-amber-500 tracking-widest uppercase">CASE STUDY ID: PROJ_904</span>
+                        <span class="severity-high">HIGH</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Active Directory Trust Escalation</h4>
+                    <div class="space-y-3 text-sm text-slate-400">
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Problem:</strong> Misconfigured inter-domain trust combined with weak ACLs enabled privilege escalation from a child domain into forest-level admin.</p>
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Surface:</strong> Active Directory / Kerberos</p>
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Vuln Class:</strong> Trust Abuse / ACL Misconfiguration</p>
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Impact:</strong> Full forest compromise from low-privileged domain user.</p>
+                        <p><strong class="text-slate-200 font-mono text-xs uppercase tracking-tighter">Fix:</strong> Hardened trust relationships, DACL auditing, and tiered admin model.</p>
+                    </div>
+                    <button class="mt-8 text-xs font-mono text-amber-500 hover:text-amber-400 flex items-center gap-2">
+                        DECRYPT CASE STUDY →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications (Career Milestone Wall) -->
+        <section id="certifications" class="py-32 px-6 border-t border-white/5 bg-surface/10">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="section-header text-center">// 06_CERTIFICATIONS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                    <!-- OSCP -->
+                    <div class="cert-card-v2" style="--d: 0s">
+                        <h4 class="cert-title">OSCP</h4>
+                        <div class="w-12 h-px bg-amber-500/30 my-4 mx-auto md:mx-0"></div>
+                        <p class="cert-desc">Hands-on exploitation across real-world networks, chaining vulnerabilities to achieve full system compromise.</p>
+                    </div>
+                    <!-- CEH -->
+                    <div class="cert-card-v2" style="--d: 1s">
+                        <h4 class="cert-title">CEH</h4>
+                        <div class="w-12 h-px bg-amber-500/30 my-4 mx-auto md:mx-0"></div>
+                        <p class="cert-desc">Foundational coverage of attack vectors, threat models, and enterprise security posture analysis.</p>
+                    </div>
+                    <!-- HTB CPTS -->
+                    <div class="cert-card-v2" style="--d: 2s">
+                        <h4 class="cert-title">HTB CPTS</h4>
+                        <div class="w-12 h-px bg-amber-500/30 my-4 mx-auto md:mx-0"></div>
+                        <p class="cert-desc">End-to-end penetration testing methodology across web, API, and infrastructure targets.</p>
+                    </div>
+                    <!-- HTB CWES -->
+                    <div class="cert-card-v2" style="--d: 1.5s">
+                        <h4 class="cert-title">HTB CWES</h4>
+                        <div class="w-12 h-px bg-amber-500/30 my-4 mx-auto md:mx-0"></div>
+                        <p class="cert-desc">Deep exploitation of modern web applications beyond scanners: logic flaws, auth bypass, and chaining.</p>
+                    </div>
+                    <!-- HTB CWEE -->
+                    <div class="cert-card-v2" style="--d: 0.5s">
+                        <h4 class="cert-title">HTB CWEE</h4>
+                        <div class="w-12 h-px bg-amber-500/30 my-4 mx-auto md:mx-0"></div>
+                        <p class="cert-desc">Advanced web exploitation including deserialization, race conditions, and complex trust boundary abuse.</p>
+                    </div>
+                    <!-- HTB CAPEN -->
+                    <div class="cert-card-v2" style="--d: 2.5s">
+                        <h4 class="cert-title">HTB CAPEN</h4>
+                        <div class="w-12 h-px bg-amber-500/30 my-4 mx-auto md:mx-0"></div>
+                        <p class="cert-desc">Active Directory attack paths, Kerberos abuse, lateral movement, and domain dominance techniques.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-32 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="section-header text-center">// 07_INITIATE_CONTACT</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-white mb-8">Ready to secure the future?</h3>
+                <p class="text-slate-400 mb-12 max-w-xl mx-auto">I'm always open to discussing high-impact security roles, research collaborations, or architectural reviews.</p>
+                <div class="flex flex-col md:flex-row gap-6 justify-center">
+                    <a href="mailto:himansh@example.com" class="contact-link">
+                        <span class="font-mono text-xs uppercase">Email_Dossier</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span class="font-mono text-xs uppercase">Secure_Signal</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-white/5 text-center text-slate-600 text-[10px] font-mono tracking-widest uppercase">
+        <p>&copy; 2024 HIMANSH // SECURE_BY_DESIGN // ALL_RIGHTS_RESERVED</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
