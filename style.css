@@ -1,0 +1,139 @@
+/* Global Overrides */
+:root {
+  --accent: #f59e0b;
+  --bg: #080808;
+}
+
+body {
+  cursor: crosshair;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.05);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.2);
+  }
+}
+
+@keyframes scanline-anim {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(245, 158, 11, 0.02), transparent);
+  pointer-events: none;
+  z-index: 9999;
+  animation: scanline-anim 8s linear infinite;
+}
+
+/* Components */
+.nav-link {
+  @apply text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 hover:text-amber-500 transition-colors;
+}
+
+.btn-primary {
+  @apply px-10 py-4 bg-amber-500 text-black font-bold font-mono text-xs tracking-widest hover:bg-amber-400 transition-all active:scale-95;
+}
+
+.btn-secondary {
+  @apply px-10 py-4 border border-white/10 hover:border-amber-500/50 hover:bg-amber-500/5 text-white font-mono text-xs tracking-widest transition-all active:scale-95;
+}
+
+.status-badge {
+  @apply py-1.5 px-4 border border-amber-500/20 bg-amber-500/5 text-[10px] font-mono tracking-[0.2em] text-amber-500 uppercase;
+}
+
+.section-header {
+  @apply text-xs font-mono text-amber-500/60 uppercase tracking-[0.3em] mb-4;
+}
+
+.experience-card {
+  @apply p-10 bg-surface border border-white/5 rounded-sm transition-all duration-300 hover:border-amber-500/20 hover:bg-white/[0.02];
+}
+
+.proficiency-card {
+  @apply p-8 bg-surface border border-white/5 rounded-sm transition-all duration-300 hover:border-amber-500/20;
+}
+
+.tool-badge {
+  @apply px-3 py-1 bg-white/5 border border-white/10 rounded-sm text-[10px] font-mono text-slate-400 uppercase tracking-wider hover:border-amber-500/40 hover:text-amber-500 transition-all cursor-default;
+}
+
+.project-card {
+  @apply p-8 bg-surface border-l-2 border-l-amber-500 border-y border-r border-white/5 rounded-sm transition-all duration-500 hover:bg-white/[0.02] hover:-translate-y-1;
+}
+
+.severity-high {
+  @apply text-[10px] font-mono font-bold bg-amber-500/10 text-amber-500 px-2 py-0.5 border border-amber-500/20;
+}
+
+.severity-critical {
+  @apply text-[10px] font-mono font-bold bg-red-500/10 text-red-500 px-2 py-0.5 border border-red-500/20;
+}
+
+/* Certifications Redesign (Career Wall) */
+.cert-card-v2 {
+  @apply p-10 bg-surface border border-white/5 rounded-sm transition-all duration-500 flex flex-col justify-center;
+  animation: pulse-glow 4s ease-in-out infinite;
+  animation-delay: var(--d);
+}
+
+.cert-card-v2:hover {
+  @apply -translate-y-2 border-amber-500 bg-white/[0.03];
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+  animation-play-state: paused;
+}
+
+.cert-title {
+  @apply text-2xl font-bold text-white tracking-widest font-mono text-center md:text-left;
+}
+
+.cert-desc {
+  @apply text-sm text-slate-500 leading-relaxed text-center md:text-left;
+}
+
+.cert-card-v2:hover .cert-desc {
+  @apply text-slate-300;
+}
+
+.contact-link {
+  @apply px-12 py-5 bg-white/5 border border-white/10 hover:border-amber-500/50 hover:bg-amber-500/5 transition-all text-slate-300 hover:text-white;
+}
+
+/* Visibility classes for script */
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
