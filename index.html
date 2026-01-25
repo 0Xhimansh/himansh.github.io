@@ -3,411 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Dewali | Product Security Engineer</title>
-    <meta name="description" content="Offensive security specialist focused on manual exploitation, logic-driven testing, and product resilience.">
-    
+    <title>Himansh | Product Security Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --accent: #6366f1; /* Indigo 500 */
-            --accent-glow: rgba(99, 102, 241, 0.15);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e7eb;
+            overflow-x: hidden;
         }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020617; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
         
-        /* Smooth Fade In */
+        /* Scroll Reveal Utility */
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Glass Cards */
-        .glass-card {
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(51, 65, 85, 0.4);
-            transition: all 0.3s ease;
+        .cert-glow:hover {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
         }
-        .glass-card:hover {
-            border-color: var(--accent);
-            background: rgba(15, 23, 42, 0.6);
-            transform: translateY(-4px);
-        }
-
-        /* Custom selection color */
-        ::selection { background: var(--accent); color: white; }
-
-        /* Navigation underline animation */
-        .nav-link { position: relative; }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        /* Background animated gradient */
-        .bg-gradient-animate {
-            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+        
+        /* Ambient Background */
+        .bg-grid-ambient {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at center, black, transparent 90%);
+            z-index: -1;
             pointer-events: none;
         }
+
+        .bg-scanline {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(34, 211, 238, 0.02) 50%
+            );
+            background-size: 100% 4px;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Hacker Character Animations */
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .hacker-bob {
+            animation: bob 0.6s ease-in-out infinite;
+        }
+
+        .hacker-container {
+            position: fixed;
+            z-index: 100;
+            pointer-events: none;
+            transition: all 5s ease-in-out;
+            will-change: top, left, transform, opacity;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hacker-container, .bg-grid-ambient {
+                display: none !important;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f1f1f;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2a2a2a;
+        }
     </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
 </head>
-<body class="text-slate-300 selection:bg-indigo-500/30">
-
-    <!-- Global Background Elements -->
-    <div class="fixed inset-0 bg-gradient-animate z-0"></div>
-
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 py-6">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-indigo-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <span class="text-xl font-bold text-white tracking-tight">Dewali<span class="text-indigo-500">.</span>sec</span>
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#expertise" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Expertise</a>
-                <a href="#experience" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Experience</a>
-                <a href="#mindset" class="nav-link text-sm font-semibold text-slate-400 hover:text-white transition-colors">Mindset</a>
-                <a href="#contact" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-xl shadow-indigo-600/20">Let's Talk</a>
-            </div>
-
-            <button id="mobile-toggle" class="md:hidden text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl hidden flex-col items-center justify-center space-y-8">
-        <a href="#expertise" class="text-2xl font-bold text-white">Expertise</a>
-        <a href="#experience" class="text-2xl font-bold text-white">Experience</a>
-        <a href="#mindset" class="text-2xl font-bold text-white">Mindset</a>
-        <a href="#contact" class="text-2xl font-bold text-indigo-500">Contact</a>
-        <button id="mobile-close" class="absolute top-8 right-8 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
-    </div>
-
-    <!-- Hero -->
-    <header class="relative min-h-screen flex items-center pt-20 px-6">
-        <div class="max-w-7xl mx-auto w-full">
-            <div class="max-w-4xl space-y-8">
-                <div class="inline-flex items-center gap-3 px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-xs font-bold uppercase tracking-widest">
-                    <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
-                    Now accepting strategic audits
-                </div>
-                
-                <h1 class="text-6xl md:text-8xl font-bold text-white leading-[1.1] tracking-tighter">
-                    Breaking systems to <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">build them stronger.</span>
-                </h1>
-                
-                <p class="text-xl md:text-2xl text-slate-400 max-w-2xl leading-relaxed">
-                    I am <span class="text-white font-bold">Himanshu Dewali</span>, a Product Security Engineer. I move beyond automated scanners to find the structural logic flaws that threaten modern enterprise software.
-                </p>
-
-                <div class="flex flex-wrap gap-5 pt-4">
-                    <a href="#expertise" class="group px-8 py-4 bg-white text-slate-950 font-bold rounded-2xl hover:bg-indigo-500 hover:text-white transition-all duration-300 flex items-center gap-3">
-                        Technical Skillset
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </a>
-                    <div class="flex items-center gap-4 px-6 py-4 glass-card rounded-2xl font-mono text-sm">
-                        <span class="text-indigo-400 font-bold">$</span>
-                        <span id="typing-text" class="text-slate-300"></span>
-                        <span class="w-2 h-4 bg-indigo-500 animate-pulse"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Skills & Expertise Section -->
-    <section id="expertise" class="py-32 bg-slate-900/20 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-20 text-center reveal">
-                <h2 class="text-sm font-mono text-indigo-500 uppercase tracking-[0.3em] mb-4">Core Domains</h2>
-                <h3 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Technical Mastery</h3>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Web & API -->
-                <div class="glass-card p-10 rounded-[2rem] reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                        </div>
-                        <h4 class="text-2xl font-bold text-white">Web & API Security</h4>
-                    </div>
-                    <ul class="space-y-4 text-slate-400">
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Logic & Workflow Abuse:</b> Deep exploitation of business logic flaws, parameter manipulation, and state-machine inconsistencies.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Auth Mastery:</b> Complex BOLA/IDOR scenarios, broken authentication flows, and token manipulation.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Manual Payloads:</b> SQLi, NoSQLi, and Deserialization attacks handled via manual fuzzing for 100% accuracy.</span>
-                        </li>
-                        <li class="pt-2 text-xs font-mono text-indigo-400/80">
-                            <span class="text-slate-500 uppercase">Tools & Techniques:</span> Burp Suite, Postman, custom fuzzers, Intruder, Repeater
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Android -->
-                <div class="glass-card p-10 rounded-[2rem] reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                        </div>
-                        <h4 class="text-2xl font-bold text-white">Mobile (Android) Security</h4>
-                    </div>
-                    <ul class="space-y-4 text-slate-400">
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Runtime Tampering:</b> Advanced instrumentation using Frida and Objection for SSL pinning bypass and data sniffing.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Reverse Engineering:</b> Decompiling APKs, Smali analysis, and native library auditing to bypass obfuscation.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Client-Side Trust:</b> Exploiting WebView vulnerabilities, insecure intents, and hardcoded secret exposures.</span>
-                        </li>
-                        <li class="pt-2 text-xs font-mono text-indigo-400/80">
-                            <span class="text-slate-500 uppercase">Tools & Techniques:</span> Frida, Objection, jadx, apktool, MobSF, Android Studio, ADB
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Active Directory -->
-                <div class="glass-card p-10 rounded-[2rem] reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-                        </div>
-                        <h4 class="text-2xl font-bold text-white">Active Directory & Internal</h4>
-                    </div>
-                    <ul class="space-y-4 text-slate-400">
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>AD Attack Vectors:</b> Kerberoasting, AS-REP Roasting, and Delegation abuse to compromise domain integrity.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Identity Abuse:</b> Exploiting ADCS certificate misconfigurations and NTLM relay vulnerabilities.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Privilege Escalation:</b> DACL/ACL-based movements and BloodHound-assisted attack path visualization.</span>
-                        </li>
-                        <li class="pt-2 text-xs font-mono text-indigo-400/80">
-                            <span class="text-slate-500 uppercase">Tools & Techniques:</span> BloodHound, PowerView, CrackMapExec, Rubeus, Impacket, Sliver
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Security Mindset -->
-                <div class="glass-card p-10 rounded-[2rem] reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                        </div>
-                        <h4 class="text-2xl font-bold text-white">Offensive Mindset</h4>
-                    </div>
-                    <ul class="space-y-4 text-slate-400">
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Beyond Scanners:</b> Focusing exclusively on what automation misses: complex logic and trust boundary crossing.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Threat Modeling:</b> Strategic STRIDE analysis and identifying potential abuse cases during the design phase.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-indigo-500 font-bold">→</span>
-                            <span><b>Business Impact:</b> Mapping technical exploits directly to revenue risk and data compliance consequences.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Experience -->
-    <section id="experience" class="py-32">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-20 reveal">
-                <h2 class="text-sm font-mono text-indigo-500 uppercase tracking-[0.3em] mb-4">Engineering Journey</h2>
-                <h3 class="text-4xl md:text-5xl font-bold text-white">Proven Impact</h3>
-            </div>
-
-            <div class="space-y-6">
-                <!-- Role 1 -->
-                <div class="glass-card p-8 md:p-12 rounded-[2.5rem] flex flex-col md:flex-row justify-between gap-10 reveal">
-                    <div class="md:w-1/3">
-                        <span class="text-xs font-mono text-indigo-400 mb-2 block tracking-widest">2023 — PRESENT</span>
-                        <h4 class="text-2xl font-bold text-white mb-2">Cybersecurity Analyst</h4>
-                        <p class="text-indigo-500/80 font-semibold italic">In TechNet Limited</p>
-                    </div>
-                    <div class="md:w-2/3 space-y-4 text-slate-400 leading-relaxed">
-                        <p>Leading deep-dive offensive security audits on enterprise SaaS products, focusing on multi-tenant isolation and API reliability.</p>
-                        <ul class="grid md:grid-cols-2 gap-4 text-sm font-medium">
-                            <li class="flex items-center gap-2 bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-700">
-                                <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> 30+ Enterprise Pentests
-                            </li>
-                            <li class="flex items-center gap-2 bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-700">
-                                <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> 150+ Manual Findings
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Research -->
-                <div class="glass-card p-8 md:p-12 rounded-[2.5rem] reveal">
-                    <div class="flex flex-col md:flex-row justify-between gap-6 mb-8">
-                        <div>
-                            <span class="text-xs font-mono text-indigo-400 mb-2 block tracking-widest">CONTINUOUS RESEARCH</span>
-                            <h4 class="text-2xl font-bold text-white">Security Research & Bug Bounty</h4>
-                        </div>
-                        <div class="flex gap-2">
-                            <span class="px-4 py-1.5 glass-card rounded-full text-xs font-bold text-white">Bugcrowd</span>
-                            <span class="px-4 py-1.5 glass-card rounded-full text-xs font-bold text-white">Synack</span>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 max-w-3xl leading-relaxed">
-                        Actively contributing to the security community through independent research. Focused on discovering novel exploitation chains in OAuth2 implementations and cross-tenant data leaks in high-scale cloud platforms.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Footer -->
-    <section id="contact" class="py-32 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-6 text-center reveal">
-            <h2 class="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tighter">Ready to secure <br>your product?</h2>
-            <p class="text-xl text-slate-400 mb-12 leading-relaxed">
-                Currently evaluating strategic security roles and private bug bounty invitations. Let's build a more resilient future together.
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="mailto:Himansh.sec.eng@gmail.com" class="px-10 py-5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl transition-all hover:scale-105 shadow-2xl shadow-indigo-600/20">
-                    Himansh.sec.eng@gmail.com
-                </a>
-                <a href="tel:+918126627650" class="px-10 py-5 glass-card text-white font-bold rounded-2xl hover:bg-slate-800 transition-all hover:scale-105">
-                    +91 8126627650
-                </a>
-            </div>
-            
-            <div class="mt-20 pt-12 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-slate-500 text-sm font-mono tracking-widest uppercase">HD.SEC v2.5</p>
-                <p class="text-slate-600 text-xs">© <script>document.write(new Date().getFullYear())</script> Himanshu Dewali // Engineering Security</p>
-                <div class="flex gap-4">
-                    <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Typing Effect Logic
-        const typingText = document.getElementById('typing-text');
-        const phrases = ["manual_exploitation", "logic_driven_testing", "threat_modeling", "api_fuzzing"];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                typingText.innerText = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.innerText = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                typeSpeed = 1500; // Pause at end
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        // Scroll Reveal Logic
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        // Navbar Styling Logic
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                nav.classList.add('bg-slate-950/80', 'backdrop-blur-xl', 'border-b', 'border-slate-800', 'py-4');
-                nav.classList.remove('py-6');
-            } else {
-                nav.classList.remove('bg-slate-950/80', 'backdrop-blur-xl', 'border-b', 'border-slate-800', 'py-4');
-                nav.classList.add('py-6');
-            }
-            reveal();
-        });
-
-        // Mobile Menu
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileClose = document.getElementById('mobile-close');
-
-        mobileToggle.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
-        mobileClose.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
-
-        // Initialize
-        window.onload = () => {
-            type();
-            reveal();
-        }
-    </script>
+<body>
+    <div id="root"></div>
 </body>
 </html>
