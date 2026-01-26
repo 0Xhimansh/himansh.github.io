@@ -9,4 +9,4 @@ It showcases:
 - Case studies and certifications
 
 Live site:
-https://0xhimansh.github.io/<repo-name>/
+[https://0xhimansh.github.io/<repo-name>/](https://0xhimansh.github.io/himansh.github.io/)
