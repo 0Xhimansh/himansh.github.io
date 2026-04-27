@@ -3,92 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Dewali | Application Security Analyst</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cybersecurity Portfolio</title>
+    <meta name="description" content="Cybersecurity Specialist, AI Security Researcher, and Web/API Pentester.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Himanshu Dewali</h1>
-            <p class="subtitle">Application Security Analyst | Web & API Penetration Testing</p>
-            <div class="contact-links">
-                <a href="mailto:himansh.sec.eng@gmail.com">himansh.sec.eng@gmail.com</a>
-                <span>|</span>
-                <span>+91 8126627650</span>
-            </div>
-        </header>
-
-        <section id="about">
-            <h2>About</h2>
-            <p>Application Security Analyst with over 2.3 years of experience in Vulnerability Assessment and Penetration Testing (VAPT), focusing on Web and RESTful API environments. I specialize in identifying vulnerabilities within the OWASP Top 10 framework, including complex IDOR and business logic flaws. I actively collaborate with development teams to implement remediation strategies and improve the overall security posture of web applications.</p>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills & Focus</h2>
-            <div class="skills-grid">
-                <div class="skills-column">
-                    <h3>Core Competencies</h3>
-                    <ul>
-                        <li><strong>Web & API Security:</strong> Mastery of OWASP Top 10/API, WSTG, and PTES methodologies; expert testing of JWT, OAuth 2.0, and RBAC.</li>
-                        <li><strong>Security Assessment Tooling:</strong> Burp Suite Pro, Postman, Ffuf, SQLMap.</li>
-                        <li><strong>Environment & Automation:</strong> Linux (Kali), Windows, Python, and Bash scripting for custom exploit development and workflow automation.</li>
-                        <li><strong>Defensive Knowledge:</strong> Secure SDLC principles and input validation techniques.</li>
-                    </ul>
-                </div>
-                <div class="skills-column learning-column">
-                    <h3>Currently Learning</h3>
-                    <p>I'm learning and exploring AIML security from a maths perspective. To build a robust foundation, I am focusing on:</p>
-                    <ul>
-                        <li>Understanding deep learning architectures and algorithms from first principles.</li>
-                        <li>Adversarial Machine Learning and evasion tactics.</li>
-                        <li>Securing LLM-based applications against prompt injection and data poisoning.</li>
-                        <li>Advanced backend engineering fundamentals to better map application logic and discover unique vulnerabilities.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience-projects">
-            <h2>Projects & Experience</h2>
-            <div class="item">
-                <h3>Vulnerability Assessment & Lifecycle Management</h3>
-                <p>Managed the full VAPT lifecycle, from initial scoping and automated scanning to manual exploitation and final verification testing. Categorized findings using CVSS v3.1 metrics to prioritize risks based on business impact, significantly reducing 'time-to-fix' for critical bugs.</p>
-            </div>
-            <div class="item">
-                <h3>Advanced Web Exploitation Lab (Security Research)</h3>
-                <p>Applied manual testing techniques to identify Command Injection and Unrestricted File Upload vulnerabilities, demonstrating full server compromise paths. Optimized automated discovery workflows using Ffuf and SQLMap in hardened environments.</p>
-            </div>
-            <div class="item">
-                <h3>E-Commerce VAPT Simulation</h3>
-                <p>Engineered a secure e-commerce application architecture and performed a full-stack security audit, focusing on business logic integrity, secure payment gateway integration, and input sanitization against injection vectors.</p>
-            </div>
-        </section>
-
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <ul class="clean-list">
-                <li>Certified Ethical Hacker (CEH) Practical - EC-Council</li>
-                <li>Certified AppSec Practitioner (CAP) - The SecOps Group</li>
-                <li>Microsoft Certified: Azure Fundamentals (AZ-900)</li>
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="logo">SecPortfolio</span>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><button id="theme-toggle" aria-label="Toggle Dark Mode">🌓</button></li>
             </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="section fade-in">
+        <div class="container">
+            <h1>Cybersecurity Specialist | AI Security Researcher | Web/API Pentester</h1>
+            <p>Identifying business logic flaws and securing backend architectures against sophisticated attack vectors.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section fade-in">
+            <div class="container">
+                <h2>About</h2>
+                <div class="divider"></div>
+                <p>Cybersecurity analyst with 2.3 years of VAPT experience. Specialized in manual web and API security testing, with deep theoretical knowledge of backend architectures. Currently pursuing BITS Pilani MSc in Data Science & AI with a focus on AI security research.</p>
+            </div>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="edu-item">
-                <strong>Indian Institute of Technology Guwahati</strong>
-                <span>Micro-credit course, Cybersecurity | June 2025</span>
-            </div>
-            <div class="edu-item">
-                <strong>**********</strong>
-                <span>Bachelor's in Computer Applications (BCA) | May 2024</span>
+        <section id="education" class="section fade-in">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="divider"></div>
+                <ul class="list-clean">
+                    <li><strong>Currently:</strong> BITS Pilani MSc Data Science & AI (in progress)</li>
+                    <li><strong>Degree:</strong> Bachelor's Degree in Computer Science</li>
+                    <li><strong>Currently Learning:</strong> OSWE Certification, OSAI+ Certification, Advanced AI Security Fundamentals</li>
+                </ul>
             </div>
         </section>
 
-        <footer>
-            <p>&copy; 2026 Himanshu Dewali. Built with minimalism in mind.</p>
-        </footer>
-    </div>
+        <section id="skills" class="section fade-in">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="divider"></div>
+                <div class="grid-2">
+                    <div>
+                        <h3>Core Skills</h3>
+                        <p>Web Application Security, API Security, JWT Exploitation, RBAC Analysis, SQL Injection Testing, XSS Testing, Access Control Testing, SSRF, File Upload Exploitation.</p>
+                    </div>
+                    <div>
+                        <h3>Tools</h3>
+                        <p>Burp Suite Community, OWASP ZAP, Nmap, Nessus, HackTheBox, PortSwigger Academy.</p>
+                    </div>
+                    <div>
+                        <h3>Specializations</h3>
+                        <p>Vulnerability Assessment & Penetration Testing (VAPT), Red Team Methodologies, Bug Bounty Testing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section fade-in">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="divider"></div>
+                <div class="project-card">
+                    <h3>Web Application Security Assessment Framework</h3>
+                    <p>Built a custom methodology framework for systematic manual web application testing covering OWASP Top 10 vulnerabilities. Documented 30+ PortSwigger labs with detailed exploitation chains and remediation strategies.</p>
+                </div>
+                <div class="project-card">
+                    <h3>API Vulnerability Detection Tool (Python)</h3>
+                    <p>Developed a Python-based tool to identify common API security flaws including JWT authentication bypass, RBAC failures, parameter pollution, and mass assignment vulnerabilities. Used in real VAPT engagements.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="learning" class="section fade-in">
+            <div class="container">
+                <h2>Currently Learning</h2>
+                <div class="divider"></div>
+                <ul class="list-clean">
+                    <li>BITS Pilani MSc Data Science & AI (Trimester 1-2 in progress)</li>
+                    <li>OSWE Certification (preparation phase)</li>
+                    <li>OSAI+ Offensive AI Security (upcoming)</li>
+                    <li>AI Security fundamentals and LLM attack vectors</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="interests" class="section fade-in">
+            <div class="container">
+                <h2>Interests</h2>
+                <div class="divider"></div>
+                <ul class="list-inline">
+                    <li>AI Security & LLM Vulnerabilities</li>
+                    <li>Offensive Security & Red Team Operations</li>
+                    <li>Vulnerability Research & Publication</li>
+                    <li>Supply Chain Security</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="section">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Open to opportunities in AI Security, AppSec, and Security Research roles.</p>
+            <ul class="nav-links footer-links">
+                <li><a href="mailto:your.email@example.com">Email</a></li>
+                <li><a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
